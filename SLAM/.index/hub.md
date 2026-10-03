@@ -1,6 +1,6 @@
 # SLAM 自学
 
-同时定位与建图（SLAM）学习笔记入口。草稿与课程材料可直接放本目录；课程笔记整理规范见 [[.regulation/LearningNoteRules|LearningNoteRules]]。
+同时定位与建图（SLAM）学习笔记入口。Part I 正文已迁入 `docs/slam/foundations/`，后续部分继续在本目录整理。草稿与课程材料可直接放本目录；课程笔记整理规范见 [[.regulation/LearningNoteRules|LearningNoteRules]]。
 
 ## 课程
 
@@ -8,16 +8,16 @@
 
 | 笔记 | 说明 |
 | --- | --- |
-| [[Courses/Part I Robot Foundations/Week 1 Chapter 1|Week 1 Chapter 1：机器人到底是什么？]] | 建立机器人软件信息流：Sensor、Perception、Localization & Mapping、Planning、Control |
-| [[Courses/Part I Robot Foundations/Week 1 Chapter 2|Week 1 Chapter 2：为什么机器人会迷路？]] | 从 Encoder 和 Odometry 误差引出 Localization |
-| [[Courses/Part I Robot Foundations/Week 1 Chapter 3|Week 1 Chapter 3：如果机器人不能相信任何一个传感器，它到底应该相信谁？]] | 区分 Observation、Reality、Belief，进入 Information Fusion |
-| [[Courses/Part I Robot Foundations/Week 1 Chapter 4|Week 1 Chapter 4：为什么机器人维护的是一个概率分布，而不是一个位置？]] | 理解 Belief over Pose，而不是单点 Pose |
-| [[Courses/Part I Robot Foundations/Week 1 Chapter 5|Week 1 Chapter 5：贝叶斯思想到底是什么？]] | 用 Prior、Observation、Posterior 理解 Belief Update |
-| [[Courses/Part I Robot Foundations/Week 1 Chapter 5.5|Week 1 Chapter 5.5：为什么机器人能够利用时间？]] | 新增章节：引入 State、Prediction、Temporal Consistency、Markov Assumption |
-| [[Courses/Part I Robot Foundations/Week 1 Chapter 6|Week 1 Chapter 6：为什么机器人学本质上是一门建模的学科？]] | 理解 Model、State Design、Prediction / Correction |
-| [[Courses/Part I Robot Foundations/Week 1 Chapter 7|Week 1 Chapter 7：如果世界上还没有 Kalman Filter，你会怎么设计一个机器人？]] | 从世界规律、Observation、Model 推导状态估计循环 |
-| [[Courses/Part I Robot Foundations/Week 1 Chapter 8|Week 1 Chapter 8：如果世界上没有 Kalman Filter，我们能不能自己推导出来？]] | 从不确定性和信息增益理解 Kalman Gain |
-| [[Courses/Part I Robot Foundations/Week 1 Summary|Week 1 Summary：课程总结与 Week 2 调整]] | 总结 Week 1 实际学习轨迹，并更新 Week 2 方向 |
+| [Week 1 Chapter 1：机器人到底是什么？](../../docs/slam/foundations/robot-systems.md) | 建立机器人软件信息流：Sensor、Perception、Localization & Mapping、Planning、Control |
+| [Week 1 Chapter 2：为什么机器人会迷路？](../../docs/slam/foundations/odometry-and-drift.md) | 从 Encoder 和 Odometry 误差引出 Localization |
+| [Week 1 Chapter 3：如果机器人不能相信任何一个传感器，它到底应该相信谁？](../../docs/slam/foundations/observation-and-belief.md) | 区分 Observation、Reality、Belief，进入 Information Fusion |
+| [Week 1 Chapter 4：为什么机器人维护的是一个概率分布，而不是一个位置？](../../docs/slam/foundations/belief-over-pose.md) | 理解 Belief over Pose，而不是单点 Pose |
+| [Week 1 Chapter 5：贝叶斯思想到底是什么？](../../docs/slam/foundations/bayesian-thinking.md) | 用 Prior、Observation、Posterior 理解 Belief Update |
+| [Week 1 Chapter 5.5：为什么机器人能够利用时间？](../../docs/slam/foundations/state-and-time.md) | 新增章节：引入 State、Prediction、Temporal Consistency、Markov Assumption |
+| [Week 1 Chapter 6：为什么机器人学本质上是一门建模的学科？](../../docs/slam/foundations/modeling.md) | 理解 Model、State Design、Prediction / Correction |
+| [Week 1 Chapter 7：如果世界上还没有 Kalman Filter，你会怎么设计一个机器人？](../../docs/slam/foundations/prediction-and-correction.md) | 从世界规律、Observation、Model 推导状态估计循环 |
+| [Week 1 Chapter 8：如果世界上没有 Kalman Filter，我们能不能自己推导出来？](../../docs/slam/foundations/kalman-gain-intuition.md) | 从不确定性和信息增益理解 Kalman Gain |
+| [Week 1 Summary：课程总结与 Week 2 调整](../../docs/slam/foundations/summary.md) | 总结 Week 1 实际学习轨迹，并更新 Week 2 方向 |
 
 ### Part II：Probabilistic State Estimation
 

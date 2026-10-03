@@ -1,5 +1,5 @@
 ---
-title: Week 1 Chapter 1：机器人到底是什么？
+title: 机器人系统的信息流
 course: Robot Perception & SLAM
 part: Part I Robot Foundations
 week: 1
@@ -12,9 +12,13 @@ tags:
   - localization
   - mapping
 status: organized
+description: 传感器、感知、定位、规划与控制怎样共同形成闭环。
+icon: book-open
 ---
 
-# Week 1 Chapter 1：机器人到底是什么？
+# 机器人系统的信息流
+
+> 阅读定位：本部分以直觉和问题拆解为主。涉及具体滤波公式时，应同时确认模型、噪声和独立性假设；严格推导将随 Part II 整理补充。
 
 ## 本章目标
 
@@ -38,12 +42,12 @@ status: organized
 
 ```mermaid
 flowchart TD
-    S[传感器 Sensors]
-    P[感知 Perception]
-    LM[定位与建图<br/>Localization & Mapping]
-    PL[规划 Planning]
-    C[控制 Control]
-    M[电机 Motors]
+    S["传感器 Sensors"]
+    P["感知 Perception"]
+    LM["定位与建图<br/>Localization & Mapping"]
+    PL["规划 Planning"]
+    C["控制 Control"]
+    M["电机 Motors"]
 
     S --> P --> LM --> PL --> C --> M
 ```
@@ -70,11 +74,11 @@ flowchart TD
 
 ```mermaid
 flowchart TD
-    A[获取信息]
-    B[理解信息]
-    C[做决定]
-    D[执行动作]
-    E[再次获取信息]
+    A["获取信息"]
+    B["理解信息"]
+    C["做决定"]
+    D["执行动作"]
+    E["再次获取信息"]
 
     A --> B --> C --> D --> E --> B
 ```
@@ -85,13 +89,13 @@ flowchart TD
 
 ```mermaid
 flowchart TD
-    S[Camera / Stereo / ToF<br/>LiDAR / IMU / Encoder]
-    F[融合传感器数据]
-    MAP[更新地图]
-    LOC[更新自身位置]
-    PATH[规划路径]
-    V[输出速度]
-    MOTOR[Motor]
+    S["Camera / Stereo / ToF<br/>LiDAR / IMU / Encoder"]
+    F["融合传感器数据"]
+    MAP["更新地图"]
+    LOC["更新自身位置"]
+    PATH["规划路径"]
+    V["输出速度"]
+    MOTOR["Motor"]
 
     S --> F --> MAP --> LOC --> PATH --> V --> MOTOR
 ```
@@ -152,21 +156,21 @@ flowchart TB
     classDef thinkBg fill:#fff9e6,stroke:#e6b84c
     classDef actBg fill:#e0f7ef,stroke:#34a853
 
-    W[真实世界 Real World]
+    W["真实世界 Real World"]
 
     subgraph sense_layer ["感知输入层"]
-        S[传感器 Sensors]
-        P[感知 Perception<br/>理解传感器数据]
+        S["传感器 Sensors"]
+        P["感知 Perception<br/>理解传感器数据"]
     end
 
     subgraph state_layer ["状态理解层"]
-        LM[定位与建图<br/>我在哪？世界长什么样？]
+        LM["定位与建图<br/>我在哪？世界长什么样？"]
     end
 
     subgraph decision_layer ["决策与执行层"]
-        PL[规划 Planning<br/>去哪里？]
-        C[控制 Control<br/>怎么过去？]
-        M[电机 Motors]
+        PL["规划 Planning<br/>去哪里？"]
+        C["控制 Control<br/>怎么过去？"]
+        M["电机 Motors"]
     end
 
     W --> S --> P --> LM --> PL --> C --> M
@@ -281,13 +285,13 @@ Forward 1m
 
 ```mermaid
 flowchart TB
-    W[世界]
-    Q1[世界有什么？]
-    Q2[我在哪里？]
-    P[Perception]
-    L[Localization]
-    Q3[世界里的东西在哪里？]
-    M[Mapping]
+    W["世界"]
+    Q1["世界有什么？"]
+    Q2["我在哪里？"]
+    P["Perception"]
+    L["Localization"]
+    Q3["世界里的东西在哪里？"]
+    M["Mapping"]
 
     W --> Q1 --> P
     W --> Q2 --> L
@@ -300,13 +304,20 @@ flowchart TB
 
 ## 学习中的问题
 
-### Q1：为什么说机器人永远接触不到真实世界，只能接触到传感器？
+
+<details>
+
+<summary>Q1：为什么说机器人永远接触不到真实世界，只能接触到传感器？</summary>
 
 因为机器人和世界的交互必须经过传感器。Camera 给它像素，LiDAR 给它点云，IMU 给它加速度和角速度，Encoder 给它轮子转动。
 
 更进一步看，任何智能体都不是直接接触世界，而是接收某种观测信号，再在内部形成解释。机器人感知，本质上就是把传感器信号解释成世界模型。
 
-### Q2：如果扫地机器人没有 Camera、LiDAR、ToF，只有 Encoder，还能做什么？
+</details>
+
+<details>
+
+<summary>Q2：如果扫地机器人没有 Camera、LiDAR、ToF，只有 Encoder，还能做什么？</summary>
 
 它仍然能执行预设运动，例如前进、转弯、按固定路径移动。
 
@@ -319,7 +330,11 @@ flowchart TB
 
 所以只有 Encoder 的机器人可以运动，但很难可靠地理解环境，也很难长期保持准确位置。
 
-### Q3：Perception 和 Localization 的本质区别是什么？
+</details>
+
+<details>
+
+<summary>Q3：Perception 和 Localization 的本质区别是什么？</summary>
 
 Perception 回答“世界里面有什么”，例如检测到桌子、墙、地面或障碍物。
 
@@ -328,6 +343,8 @@ Localization 回答“我在哪里”，例如估计机器人当前的 `(x, y, t
 如果机器人进一步回答“桌子在地图上的 `(5, 8)`”，它已经进入 Mapping：把世界中的对象放进地图坐标中。
 
 ---
+
+</details>
 
 ## 本章小结
 
@@ -358,7 +375,7 @@ Localization 回答“我在哪里”，例如估计机器人当前的 `(x, y, t
 
 ## 下一章
 
-[[Week 1 Chapter 2|Week 1 Chapter 2：机器人为什么会迷路？]]
+[Week 1 Chapter 2：机器人为什么会迷路？](odometry-and-drift.md)
 
 下一章从最简单的轮式机器人开始，讨论：
 
@@ -369,5 +386,5 @@ Localization 回答“我在哪里”，例如估计机器人当前的 `(x, y, t
 
 ## 相关笔记
 
-- [[../../.index/hub|SLAM 自学]]
+- [SLAM 自学](../README.md)
 - 可后续沉淀概念：Coordinate Frame、Occupancy Grid、Perception、Localization、Mapping

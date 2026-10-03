@@ -1,5 +1,5 @@
 ---
-title: Week 1 Chapter 7：如果世界上还没有 Kalman Filter，你会怎么设计一个机器人？
+title: 预测与校正的循环
 course: Robot Perception & SLAM
 part: Part I Robot Foundations
 week: 1
@@ -12,9 +12,13 @@ tags:
   - observation
   - information-gain
 status: organized
+description: 从问题出发建立递归状态估计的基本结构。
+icon: book-open
 ---
 
-# Week 1 Chapter 7：如果世界上还没有 Kalman Filter，你会怎么设计一个机器人？
+# 预测与校正的循环
+
+> 阅读定位：本部分以直觉和问题拆解为主。涉及具体滤波公式时，应同时确认模型、噪声和独立性假设；严格推导将随 Part II 整理补充。
 
 ## 本章目标
 
@@ -32,13 +36,13 @@ Chapter 6 讲 Model。本章从 Model 出发，推导状态估计最底层的循
 
 ```mermaid
 flowchart TD
-    S0[State k-1]
-    M[Motion Model]
-    P[Predicted State k]
-    Z[Observation k]
-    E[Compare / Evaluate]
-    B[Updated Belief k]
-    N[Next Prediction]
+    S0["State k-1"]
+    M["Motion Model"]
+    P["Predicted State k"]
+    Z["Observation k"]
+    E["Compare / Evaluate"]
+    B["Updated Belief k"]
+    N["Next Prediction"]
 
     S0 --> M --> P --> E
     Z --> E
@@ -59,11 +63,11 @@ flowchart TD
 
 ```mermaid
 flowchart TD
-    L[机器人当前位置]
-    D[下一步往哪走？]
-    A[是否避障？]
-    H[是否回充？]
-    C[控制电机]
+    L["机器人当前位置"]
+    D["下一步往哪走？"]
+    A["是否避障？"]
+    H["是否回充？"]
+    C["控制电机"]
 
     L --> D --> A --> H --> C
 ```
@@ -125,12 +129,12 @@ Physics Model 和 Learned Model 都是在逼近世界规律：
 
 ```mermaid
 flowchart TB
-    R[Reality]
-    REG[世界具有规律<br/>Regularity]
-    PM[Physics Model]
-    LM[Learned Model]
-    MM[Motion Model]
-    P[Prediction]
+    R["Reality"]
+    REG["世界具有规律<br/>Regularity"]
+    PM["Physics Model"]
+    LM["Learned Model"]
+    MM["Motion Model"]
+    P["Prediction"]
 
     R --> REG
     REG --> PM
@@ -194,19 +198,32 @@ Prediction 和 Observation 不一定谁完全替代谁。即使 Observation 比 
 
 ## 学习中的问题
 
-### Q1：Prediction 来自 Motion Model、Physics，还是 Learning？
+
+<details>
+
+<summary>Q1：Prediction 来自 Motion Model、Physics，还是 Learning？</summary>
 
 它们都不是最根本来源。Prediction 的根本来源是世界具有规律。Physics 和 Learning 都只是试图逼近这些规律。
 
-### Q2：好的 Observation 能替代差的 Model 吗？
+</details>
+
+<details>
+
+<summary>Q2：好的 Observation 能替代差的 Model 吗？</summary>
 
 不能简单替代。Observation 决定机器人能看到什么，Model 决定机器人如何理解看到的东西。二者需要相互解释、相互纠错。
 
-### Q3：为什么“不确定性小”不等于“信息多”？
+</details>
+
+<details>
+
+<summary>Q3：为什么“不确定性小”不等于“信息多”？</summary>
 
 白墙图像可能噪声很小，但不能区分位置；它不一定提供 Localization 所需的信息。机器人真正关心的是新 Observation 能减少多少不确定性。
 
 ---
+
+</details>
 
 ## 本章小结
 
@@ -229,11 +246,11 @@ Prediction 和 Observation 不一定谁完全替代谁。即使 Observation 比 
 
 ## 下一章
 
-[[Week 1 Chapter 8|Week 1 Chapter 8：如果世界上没有 Kalman Filter，我们能不能自己推导出来？]]
+[Week 1 Chapter 8：如果世界上没有 Kalman Filter，我们能不能自己推导出来？](kalman-gain-intuition.md)
 
 下一章正式用直觉推导 Kalman Filter 的融合规则。
 
 ## 相关笔记
 
-- [[Week 1 Chapter 6|Week 1 Chapter 6：为什么机器人学本质上是一门建模的学科？]]
+- [Week 1 Chapter 6：为什么机器人学本质上是一门建模的学科？](modeling.md)
 - 可后续沉淀概念：Information Gain、Prediction、Observation、Physics Model、Learned Model

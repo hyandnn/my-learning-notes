@@ -1,0 +1,11 @@
+<svg xmlns="http://www.w3.org/2000/svg" width="1600" height="440" viewBox="0 0 1600 440" role="img" aria-labelledby="title desc">
+<title id="title">Robotics Notes</title><desc id="desc">Abstract geometry, coordinate axes and an observation path on a dark blue field.</desc>
+<defs><linearGradient id="bg" x2="1" y2="1"><stop stop-color="#0b1724"/><stop offset="1" stop-color="#123841"/></linearGradient><pattern id="grid" width="48" height="48" patternUnits="userSpaceOnUse"><path d="M48 0H0V48" fill="none" stroke="#97bfc2" stroke-opacity=".08"/></pattern></defs>
+<rect width="1600" height="440" fill="url(#bg)"/><rect width="1600" height="440" fill="url(#grid)"/>
+<g fill="none" stroke="#67d5c3"><path d="M1010 324L1190 268L1338 330L1450 169" stroke-width="3"/><circle cx="1190" cy="268" r="76" opacity=".2"/><circle cx="1190" cy="268" r="120" opacity=".1"/><path d="M1040 360V128M1039 360H1430M1040 360L970 296" stroke-opacity=".5" stroke-width="2"/><path d="M1189 268L1340 114L1450 169L1338 330Z" stroke-dasharray="7 9" opacity=".5"/></g>
+<g fill="#96e7d9"><circle cx="1010" cy="324" r="6"/><circle cx="1190" cy="268" r="7"/><circle cx="1338" cy="330" r="6"/><circle cx="1450" cy="169" r="6"/></g>
+<text x="112" y="147" font-family="Arial,sans-serif" font-size="19" letter-spacing="5" fill="#8bd9cf">MERCI / LEARNING IN PUBLIC</text>
+<text x="108" y="230" font-family="Arial,sans-serif" font-size="70" font-weight="600" letter-spacing="-2" fill="#eef8f7">Robotics Notes</text>
+<text x="112" y="283" font-family="Arial,sans-serif" font-size="22" letter-spacing="1" fill="#a2c1c5">Perception. State. Geometry.</text>
+<path d="M112 322H180" stroke="#67d5c3" stroke-width="4"/>
+</svg>

@@ -1,13 +1,5 @@
 # Learning
 
-个人自学笔记。允许草稿、课程笔记、习题与实验记录。
+[网站首页](../docs/README.md) · [学习路线](../docs/roadmap.md) · [尚未迁入网站的 SLAM 材料](../SLAM/.index/hub.md)
 
-## 主题
-
-| 路径 | 说明 |
-| --- | --- |
-| [[SLAM/.index/hub\|SLAM/]] | 同时定位与建图（SLAM）自学 |
-
-## 整理
-
-SLAM 课程笔记按 [[SLAM/.regulation/LearningNoteRules|LearningNoteRules]] 整理。
+整理规范见 [Publishing](../.regulation/Publishing.md) 和 [LearningNoteRules](../SLAM/.regulation/LearningNoteRules.md)。

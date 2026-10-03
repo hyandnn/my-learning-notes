@@ -1,5 +1,5 @@
 ---
-title: Week 1 Chapter 5：贝叶斯思想到底是什么？
+title: 贝叶斯更新的直觉
 course: Robot Perception & SLAM
 part: Part I Robot Foundations
 week: 1
@@ -12,9 +12,13 @@ tags:
   - prior
   - posterior
 status: organized
+description: 先验、似然与后验怎样把新证据接入已有认识。
+icon: book-open
 ---
 
-# Week 1 Chapter 5：贝叶斯思想到底是什么？
+# 贝叶斯更新的直觉
+
+> 阅读定位：本部分以直觉和问题拆解为主。涉及具体滤波公式时，应同时确认模型、噪声和独立性假设；严格推导将随 Part II 整理补充。
 
 ## 本章目标
 
@@ -38,10 +42,10 @@ status: organized
 
 ```mermaid
 flowchart TD
-    PR[Prior<br/>更新前的 Belief]
-    Z[Observation<br/>新的证据]
-    PO[Posterior<br/>更新后的 Belief]
-    NPR[下一时刻 Prior]
+    PR["Prior<br/>更新前的 Belief"]
+    Z["Observation<br/>新的证据"]
+    PO["Posterior<br/>更新后的 Belief"]
+    NPR["下一时刻 Prior"]
 
     PR --> PO
     Z --> PO
@@ -198,25 +202,38 @@ P(厨房 | 看到冰箱)
 
 ## 学习中的问题
 
-### Q1：看到冰箱后，应该直接把厨房设为 100% 吗？
+
+<details>
+
+<summary>Q1：看到冰箱后，应该直接把厨房设为 100% 吗？</summary>
 
 不应该。看到冰箱是强证据，但不是绝对真相。冰箱也可能出现在开放式客厅、餐厅、商店等场景。
 
 更合理的是根据 Prior、Likelihood 和观测可靠性更新成某个概率分布，而不是直接清零其他可能性。
 
-### Q2：为什么 `P(z|x)` 和 `P(x|z)` 差别这么大？
+</details>
+
+<details>
+
+<summary>Q2：为什么 `P(z|x)` 和 `P(x|z)` 差别这么大？</summary>
 
 因为前者是“如果状态成立，观测出现的概率”；后者是“观测已经出现，状态成立的概率”。机器人经常能建立前者，却真正需要后者。
 
 这正是贝叶斯公式的工作。
 
-### Q3：连续 Observation 不独立时会发生什么？
+</details>
+
+<details>
+
+<summary>Q3：连续 Observation 不独立时会发生什么？</summary>
 
 如果 Observation 之间有时间相关性，机器人不能把每一帧当成全新的独立证据。它必须建模 State 随时间演化，并把上一时刻的 State 和当前 Observation 联系起来。
 
 这正是 Chapter 5.5 要讨论的问题。
 
 ---
+
+</details>
 
 ## 本章小结
 
@@ -239,11 +256,16 @@ P(厨房 | 看到冰箱)
 
 ## 下一章
 
-[[Week 1 Chapter 5.5|Week 1 Chapter 5.5：为什么机器人能够利用时间？]]
+[Week 1 Chapter 5.5：为什么机器人能够利用时间？](state-and-time.md)
 
 下一章是原计划外新增章节：在写贝叶斯公式前，先理解时间连续性、State 和 Markov Assumption。
 
 ## 相关笔记
 
-- [[Week 1 Chapter 4|Week 1 Chapter 4：为什么机器人维护的是一个概率分布，而不是一个位置？]]
+- [Week 1 Chapter 4：为什么机器人维护的是一个概率分布，而不是一个位置？](belief-over-pose.md)
 - 可后续沉淀概念：Prior、Likelihood、Posterior、Bayesian Update、Bayes Filter
+
+
+## 可复算的例子
+
+用相同的“厨房与冰箱”例子代入公式，见[贝叶斯更新例题](../../reference/bayes-worked-example.md)。

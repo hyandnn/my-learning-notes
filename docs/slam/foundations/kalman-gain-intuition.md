@@ -1,5 +1,5 @@
 ---
-title: Week 1 Chapter 8：如果世界上没有 Kalman Filter，我们能不能自己推导出来？
+title: Kalman Gain 的直觉
 course: Robot Perception & SLAM
 part: Part I Robot Foundations
 week: 1
@@ -12,9 +12,13 @@ tags:
   - belief-update
   - uncertainty
 status: organized
+description: 怎样按不确定性分配预测和观测的融合权重。
+icon: book-open
 ---
 
-# Week 1 Chapter 8：如果世界上没有 Kalman Filter，我们能不能自己推导出来？
+# Kalman Gain 的直觉
+
+> 阅读定位：本部分以直觉和问题拆解为主。涉及具体滤波公式时，应同时确认模型、噪声和独立性假设；严格推导将随 Part II 整理补充。
 
 ## 本章目标
 
@@ -32,11 +36,11 @@ Chapter 7 已经提出：机器人需要判断何时更相信 Prediction，何�
 
 ```mermaid
 flowchart TD
-    P[Prediction<br/>我根据模型认为现在怎样]
-    O[Observation<br/>世界告诉我现在怎样]
-    U[Uncertainty<br/>各自有多不确定]
-    K[Kalman Gain<br/>动态融合权重]
-    B[Updated Belief]
+    P["Prediction<br/>我根据模型认为现在怎样"]
+    O["Observation<br/>世界告诉我现在怎样"]
+    U["Uncertainty<br/>各自有多不确定"]
+    K["Kalman Gain<br/>动态融合权重"]
+    B["Updated Belief"]
 
     P --> K
     O --> K
@@ -160,19 +164,32 @@ Kalman Filter 真正解决的是：
 
 ## 学习中的问题
 
-### Q1：为什么不是选择不确定性更小的那个？
+
+<details>
+
+<summary>Q1：为什么不是选择不确定性更小的那个？</summary>
 
 因为另一个信息源即使不确定性更大，也可能仍包含新信息。状态估计不是硬选择，而是加权综合。
 
-### Q2：Kalman Gain 小是否说明 Observation 很差？
+</details>
+
+<details>
+
+<summary>Q2：Kalman Gain 小是否说明 Observation 很差？</summary>
 
 不一定。也可能是 Prediction 已经非常确定，Observation 虽然还可以，但没有提供多少新的 Information Gain。
 
-### Q3：如果 Prediction 来自 Transformer，Observation 来自 Camera，Kalman 思想还成立吗？
+</details>
+
+<details>
+
+<summary>Q3：如果 Prediction 来自 Transformer，Observation 来自 Camera，Kalman 思想还成立吗？</summary>
 
 直觉上仍然成立。只要存在两个信息源：一个提供预测，一个提供观测，并且都带有不确定性，就仍然会遇到“如何动态融合”的问题。
 
 ---
+
+</details>
 
 ## 本章小结
 
@@ -199,11 +216,11 @@ Kalman Filter 真正解决的是：
 
 ## 下一章
 
-[[Week 1 Summary|Week 1 Summary：课程总结与 Week 2 调整]]
+[Week 1 Summary：课程总结与 Week 2 调整](summary.md)
 
 Week 1 结束后，课程将进入 `Probabilistic State Estimation`：Information、Probability、Uncertainty、Gaussian、Bayes Filter、Kalman Filter。
 
 ## 相关笔记
 
-- [[Week 1 Chapter 7|Week 1 Chapter 7：如果世界上还没有 Kalman Filter，你会怎么设计一个机器人？]]
+- [Week 1 Chapter 7：如果世界上还没有 Kalman Filter，你会怎么设计一个机器人？](prediction-and-correction.md)
 - 可后续沉淀概念：Kalman Gain、Q/R、Uncertainty Modeling、Belief Update

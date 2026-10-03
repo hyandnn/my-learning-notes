@@ -1,5 +1,5 @@
 ---
-title: Week 1 Chapter 6：为什么机器人学本质上是一门建模的学科？
+title: 从状态到模型
 course: Robot Perception & SLAM
 part: Part I Robot Foundations
 week: 1
@@ -12,9 +12,13 @@ tags:
   - prediction
   - robotics
 status: organized
+description: 用运动模型与观测模型描述可预测、可修正的系统。
+icon: book-open
 ---
 
-# Week 1 Chapter 6：为什么机器人学本质上是一门建模的学科？
+# 从状态到模型
+
+> 阅读定位：本部分以直觉和问题拆解为主。涉及具体滤波公式时，应同时确认模型、噪声和独立性假设；严格推导将随 Part II 整理补充。
 
 ## 本章目标
 
@@ -34,11 +38,11 @@ Chapter 5.5 定义了 State。Chapter 6 进一步说明：State 只有放进 Mod
 
 ```mermaid
 flowchart TD
-    S[State]
-    M[Model<br/>世界运行规律的假设]
-    P[Prediction]
-    O[Observation]
-    U[Updated Belief]
+    S["State"]
+    M["Model<br/>世界运行规律的假设"]
+    P["Prediction"]
+    O["Observation"]
+    U["Updated Belief"]
 
     S --> M --> P
     P --> U
@@ -120,11 +124,11 @@ Kalman 的 Prediction 来自 Model，Observation 来自 Sensor，Correction 则�
 
 ```mermaid
 flowchart TD
-    M[Motion Model]
-    P[Prediction]
-    Z[Observation]
-    C[Correction]
-    B[Updated Belief]
+    M["Motion Model"]
+    P["Prediction"]
+    Z["Observation"]
+    C["Correction"]
+    B["Updated Belief"]
 
     M --> P
     P --> C
@@ -140,15 +144,15 @@ flowchart TD
 
 ```mermaid
 flowchart TD
-    R[Reality]
-    S[Sensor]
-    O[Observation]
-    B[Belief]
-    ST[State]
-    M[Model]
-    P[Prediction]
-    NZ[New Observation]
-    U[Update]
+    R["Reality"]
+    S["Sensor"]
+    O["Observation"]
+    B["Belief"]
+    ST["State"]
+    M["Model"]
+    P["Prediction"]
+    NZ["New Observation"]
+    U["Update"]
 
     R --> S --> O --> B --> ST --> M --> P
     P --> U
@@ -195,19 +199,28 @@ Prediction -> Observation -> Update -> Next Prediction
 
 ## 学习中的问题
 
-### Q1：Ground Detection 从“调参数”升级为“改 Model”是什么意思？
+
+<details>
+
+<summary>Q1：Ground Detection 从“调参数”升级为“改 Model”是什么意思？</summary>
 
 如果只是改阈值，是参数调整；如果加入 Confidence、Residual、Material、时序连续性或平面假设，就是在修改机器人对地面的 Model。
 
 这会改变系统解释 Observation 的方式。
 
-### Q2：为什么 Model 是假设，不是 Truth？
+</details>
+
+<details>
+
+<summary>Q2：为什么 Model 是假设，不是 Truth？</summary>
 
 因为 Model 永远是对真实世界的简化。`Ground = Plane` 在局部平坦地面上很好，但在台阶、地毯边缘、反光地面上可能失效。
 
 机器人学的难点就是选择一个“足够简单又足够真实”的 Model。
 
 ---
+
+</details>
 
 ## 本章小结
 
@@ -229,11 +242,11 @@ Prediction -> Observation -> Update -> Next Prediction
 
 ## 下一章
 
-[[Week 1 Chapter 7|Week 1 Chapter 7：如果世界上还没有 Kalman Filter，你会怎么设计一个机器人？]]
+[Week 1 Chapter 7：如果世界上还没有 Kalman Filter，你会怎么设计一个机器人？](prediction-and-correction.md)
 
 下一章从世界规律、State、Observation 和 Model 出发，手工推导出机器人状态估计的底层循环。
 
 ## 相关笔记
 
-- [[Week 1 Chapter 5.5|Week 1 Chapter 5.5：为什么机器人能够利用时间？]]
+- [Week 1 Chapter 5.5：为什么机器人能够利用时间？](state-and-time.md)
 - 可后续沉淀概念：Model、State Design、Motion Model、Observation Model、Uncertainty Model
