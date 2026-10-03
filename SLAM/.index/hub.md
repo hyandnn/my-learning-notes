@@ -103,4 +103,3 @@ Part I 负责建立机器人基础世界观；Part II 将它转化为概率状�
 ## 相关
 
 - 可后续沉淀概念：Coordinate Frame、Occupancy Grid、ICP、Kalman Filter、Bayes Filter
-- 与工程侧可对照主题：Lidar 感知、Ground Detection、Mapping、Tracking
