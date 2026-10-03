@@ -82,19 +82,18 @@ Chapter 5 开始讨论：
 
 本周最关键的转折是对 State 的重新定义：
 
-> State = 能够决定系统未来演化的最小信息集合。
+> State 是模型中描述系统、并在给定输入和转移模型后足以预测未来演化的变量集合。
+
+这里不要求最小或唯一参数化。随机系统预测的是未来分布；均值和协方差描述估计，而不应自动归入物理状态。详见[状态与时间连续性](state-and-time.md)。
 
 这个定义把 Ground Detection、Tracking、SLAM、Pose Estimation 等任务统一到同一个框架：
 
 ```mermaid
 flowchart TD
-    S["State"]
-    P["Prediction"]
-    O["Observation"]
-    C["Correction"]
-    B["Updated Belief"]
-
-    S --> P --> O --> C --> B --> S
+    B["当前 Belief"] --> P["下一时刻预测"]
+    P --> C["校正"]
+    O["新观测"] --> C
+    C --> B
 ```
 
 ### Chapter 6-8：框架思维
@@ -109,7 +108,7 @@ flowchart TD
 
 此时学习目标已经从“学会某个 SLAM 算法”升级为：
 
-> 把任何机器人问题抽象成 State Estimation Problem。
+> 识别机器人任务中的状态估计问题，并说明它与规划、控制等模块的关系。
 
 ---
 

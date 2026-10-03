@@ -6,7 +6,7 @@
 2. 按内容需要补充定义、假设、推导、例子、问答与自测。
 3. 确认正文能独立阅读后，将它移入 `docs/` 的对应主题目录。
 4. 在 `docs/SUMMARY.md` 加入目录，更新主题概览与前后章节链接。
-5. 运行 `python3 scripts/check_docs.py`，再检查 GitBook 预览。
+5. 使用 Python 3.10 或更新版本运行 `python3 scripts/check_docs.py`，再检查 GitBook 预览。PR 的 `Docs check / Navigation and links` 会自动运行同一检查。
 6. 合并到 `main`，在更新记录中注明影响阅读或结论的变化。
 
 ## 修改现有章节
@@ -14,6 +14,10 @@
 直接修改 `docs/` 下对应文件。Part I 原目录已迁移，不要在旧路径重新维护正文。现有 Part II / III 仍从 `SLAM/` 编辑，进入网站时再逐章迁移。
 
 技术修正说明原问题与新结论；不能确认时标记待核验。排版修正不必逐项记入公开更新记录。
+
+## 反馈问题
+
+读者可在仓库的 [Issues](https://github.com/hyandnn/my-learning-notes/issues/new/choose) 中选择“内容纠错或阅读问题”，提供具体页面、问题和可复算的依据。
 
 ## 检查范围
 

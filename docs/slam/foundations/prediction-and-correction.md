@@ -86,9 +86,9 @@ flowchart TD
 x, y, theta
 ```
 
-机器人很难预测 `100ms` 后的位置，因为缺少速度信息。
+如果要描述未知的惯性运动，仅有位置与朝向可能不够；但若速度由外部输入给出，或采用随机游走模型，仍可以预测。
 
-因此 State 可能升级为：
+对于需要同时估计速度的模型，State 可以扩充为：
 
 ```text
 x, y, theta, vx, vy, omega
@@ -144,7 +144,7 @@ flowchart TB
     MM --> P
 ```
 
-如果世界完全随机，Physics、Learning 和 Motion Model 都无法产生有效 Prediction。
+如果相邻时刻完全独立，过去状态就无法提供额外预测信息；但已知的概率分布仍能用于概率预测。随机性本身不意味着不能建模。
 
 ### 5. Observation 和 Model 谁更重要
 
@@ -162,7 +162,7 @@ flowchart TB
 
 ## 关键直觉
 
-### 1. Information Gain 比 Observation 质量更重要
+### 1. 观测价值取决于当前任务与已有估计
 
 如果 Prediction 已经非常确定：
 
@@ -184,7 +184,7 @@ flowchart TB
 
 Prediction 和 Observation 不一定谁完全替代谁。即使 Observation 比 Prediction 差一点，也可能包含新信息。
 
-状态估计不是“选择谁”，而是“按可信程度和信息增益综合”。
+符合模型的证据可以按不确定性融合；误关联、离群值与相关性则需要单独处理。这里的信息增益是理解观测价值的直觉，不是 Kalman Gain 的定义。
 
 ### 3. Kalman Gain 的问题已经出现
 
@@ -232,7 +232,7 @@ Prediction 和 Observation 不一定谁完全替代谁。即使 Observation 比 
 3. Observation 是 State 的证据，不是 State 本身。
 4. Prediction 的根源是世界规律，而不只是 Motion Model。
 5. Observation 和 Model 分别提供 Evidence 与 Explanation。
-6. Information Gain 引出 Kalman Gain。
+6. 观测的补充价值引出融合问题；Kalman Gain 具体描述如何由残差修正状态。
 
 ---
 
@@ -248,9 +248,11 @@ Prediction 和 Observation 不一定谁完全替代谁。即使 Observation 比 
 
 [Week 1 Chapter 8：如果世界上没有 Kalman Filter，我们能不能自己推导出来？](kalman-gain-intuition.md)
 
-下一章正式用直觉推导 Kalman Filter 的融合规则。
+下一章建立 Kalman Filter 的融合直觉，并说明它的适用边界。
 
 ## 相关笔记
 
 - [Week 1 Chapter 6：为什么机器人学本质上是一门建模的学科？](modeling.md)
 - 可后续沉淀概念：Information Gain、Prediction、Observation、Physics Model、Learned Model
+
+> 修订说明（2026-10-04）：补充位置状态的建模条件，区分随机性与不可预测性、信息增益与 Kalman Gain。
