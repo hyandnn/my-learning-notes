@@ -27,12 +27,12 @@ layout:
 <table data-view="cards"><thead><tr><th></th><th></th><th data-hidden data-card-target data-type="content-ref"></th></tr></thead><tbody>
 <tr><td><strong>阅读指南</strong></td><td>了解前置知识、阅读顺序和笔记的使用方式。</td><td><a href="getting-started.md">阅读指南</a></td></tr>
 <tr><td><strong>SLAM · 机器人基础</strong></td><td>从系统信息流走到状态、Belief 与预测校正循环。</td><td><a href="slam/foundations/README.md">机器人基础</a></td></tr>
-<tr><td><strong>术语与公式</strong></td><td>对照中英文概念，复算一个完整的贝叶斯更新例子。</td><td><a href="reference/glossary.md">术语与公式</a></td></tr>
+<tr><td><strong>术语与公式</strong></td><td>对照中英文概念，复算一个完整的贝叶斯更新例子。</td><td><a href="reference/README.md">术语与公式</a></td></tr>
 </tbody></table>
 
 ## 当前可以读什么
 
-**Part I 已整理为连续阅读路径**：9 篇章节笔记与 1 篇阶段总结，包含临时补充的 Chapter 5.5。
+**Part I 已整理为连续阅读路径**：9 篇章节笔记与 1 篇阶段总结，包含补充章节 Chapter 5.5。
 
 Part II 的概率状态估计、Part III 的空间状态估计已有学习材料，正在继续整理。具体进度和源文档入口见[学习路线](roadmap.md)。
 

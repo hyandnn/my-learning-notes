@@ -24,4 +24,4 @@ icon: circle-info
 - [个人网站](https://hyandnn.github.io/)
 - [GitHub](https://github.com/hyandnn)
 - [学习笔记源仓库](https://github.com/hyandnn/my-learning-notes)
-- [反馈问题](https://github.com/hyandnn/my-learning-notes/issues)
+- [反馈问题](https://github.com/hyandnn/my-learning-notes/issues/new/choose)

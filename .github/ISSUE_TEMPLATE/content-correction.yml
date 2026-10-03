@@ -1,0 +1,23 @@
+name: 内容纠错或阅读问题
+description: 报告公式、概念、链接或页面显示问题。
+title: '[笔记反馈] '
+body:
+  - type: input
+    id: page
+    attributes:
+      label: 页面链接或章节路径
+      placeholder: https://roborock-1.gitbook.io/merci-robotics-notes/...
+    validations:
+      required: true
+  - type: textarea
+    id: problem
+    attributes:
+      label: 问题描述
+      description: 请指出具体段落；排版问题请附屏幕宽度或截图。
+    validations:
+      required: true
+  - type: textarea
+    id: suggestion
+    attributes:
+      label: 建议修改或参考来源
+      description: 可填写推导、复算过程、论文或官方文档链接。
