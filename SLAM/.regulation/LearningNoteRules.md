@@ -1,6 +1,6 @@
 # SLAM 自学笔记整理规则
 
-适用于 `SLAM/` 下由导师对话、课程讲解、阶段总结形成的自学笔记。
+适用于 `SLAM/` 与 `docs/slam/` 下由导师对话、课程讲解、阶段总结形成的自学笔记。
 
 ## 目标
 
@@ -343,3 +343,8 @@ Mermaid 只用于表达：
 - 使用错误的 Markdown 语法模拟 LaTeX 公式
 - 把学习笔记改成纯条目百科
 - 擅自移动目录或重命名文件
+
+
+## 公开发布补充
+
+网站正文、章节迁移和公开导航遵循 [Publishing](../../.regulation/Publishing.md)。网站问答使用标准 `<details>` 折叠块，公开正文使用标准 Markdown 链接；学习草稿仍可使用 Obsidian callout。

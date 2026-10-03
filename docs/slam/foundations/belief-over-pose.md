@@ -1,5 +1,5 @@
 ---
-title: Week 1 Chapter 4：为什么机器人维护的是一个概率分布，而不是一个位置？
+title: 用分布表达位置
 course: Robot Perception & SLAM
 part: Part I Robot Foundations
 week: 1
@@ -12,9 +12,13 @@ tags:
   - probability
   - state-estimation
 status: organized
+description: 为什么单个位置估计无法表达歧义和不确定性。
+icon: book-open
 ---
 
-# Week 1 Chapter 4：为什么机器人维护的是一个概率分布，而不是一个位置？
+# 用分布表达位置
+
+> 阅读定位：本部分以直觉和问题拆解为主。涉及具体滤波公式时，应同时确认模型、噪声和独立性假设；严格推导将随 Part II 整理补充。
 
 ## 本章目标
 
@@ -32,9 +36,9 @@ Chapter 3 引入 `Belief`。Chapter 4 把它应用到 Localization：
 
 ```mermaid
 flowchart TD
-    L[Localization]
-    B[Belief over Pose<br/>对所有可能位置的相信程度]
-    P[Most Likely Pose<br/>最可能位置]
+    L["Localization"]
+    B["Belief over Pose<br/>对所有可能位置的相信程度"]
+    P["Most Likely Pose<br/>最可能位置"]
 
     L --> B --> P
 ```
@@ -113,18 +117,18 @@ flowchart TB
     classDef actBg fill:#e0f7ef,stroke:#34a853
 
     subgraph sense_layer ["观测层"]
-        S[Sensor]
-        O[Observation]
+        S["Sensor"]
+        O["Observation"]
     end
 
     subgraph belief_layer ["机器人脑海"]
-        B[Belief]
+        B["Belief"]
     end
 
     subgraph act_layer ["行动层"]
-        P[Planning]
-        M[Mapping]
-        C[Control]
+        P["Planning"]
+        M["Mapping"]
+        C["Control"]
     end
 
     S --> O --> B
@@ -144,10 +148,10 @@ Belief 不只由 Observation 更新，还会受 Prior Knowledge 影响。
 
 ```mermaid
 flowchart TD
-    R[Reality]
-    O[Observation]
-    K[Prior Knowledge]
-    B[Belief]
+    R["Reality"]
+    O["Observation"]
+    K["Prior Knowledge"]
+    B["Belief"]
 
     R --> O
     O --> B
@@ -193,7 +197,10 @@ flowchart TD
 
 ## 学习中的问题
 
-### Q1：如果机器人维护多个 Belief，会不会需要更多先验知识？
+
+<details>
+
+<summary>Q1：如果机器人维护多个 Belief，会不会需要更多先验知识？</summary>
 
 更准确地说，维护更多 Belief 需要更好的 Belief Management。
 
@@ -205,11 +212,17 @@ Prior Knowledge 可以帮助评价不同假设，但真正困难的是决定：
 
 这是 SLAM、自动驾驶、目标跟踪中都存在的问题。
 
-### Q2：Belief 是不是越完整越好？
+</details>
+
+<details>
+
+<summary>Q2：Belief 是不是越完整越好？</summary>
 
 不是。Belief 越完整，计算成本越高；Belief 越简单，风险越大。机器人系统设计永远在“表达能力”和“计算可行性”之间取舍。
 
 ---
+
+</details>
 
 ## 本章小结
 
@@ -231,11 +244,11 @@ Prior Knowledge 可以帮助评价不同假设，但真正困难的是决定：
 
 ## 下一章
 
-[[Week 1 Chapter 5|Week 1 Chapter 5：贝叶斯思想到底是什么？]]
+[Week 1 Chapter 5：贝叶斯思想到底是什么？](bayesian-thinking.md)
 
 下一章开始讨论 Belief 如何被新的 Observation 合理更新。
 
 ## 相关笔记
 
-- [[Week 1 Chapter 3|Week 1 Chapter 3：如果机器人不能相信任何一个传感器，它到底应该相信谁？]]
+- [Week 1 Chapter 3：如果机器人不能相信任何一个传感器，它到底应该相信谁？](observation-and-belief.md)
 - 可后续沉淀概念：Belief over Pose、Probability Distribution、Hypothesis Management、Kalman Filter

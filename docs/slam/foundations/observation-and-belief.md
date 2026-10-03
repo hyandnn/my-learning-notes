@@ -1,5 +1,5 @@
 ---
-title: Week 1 Chapter 3：如果机器人不能相信任何一个传感器，它到底应该相信谁？
+title: 观测、真实世界与 Belief
 course: Robot Perception & SLAM
 part: Part I Robot Foundations
 week: 1
@@ -12,9 +12,13 @@ tags:
   - information-fusion
   - uncertainty
 status: organized
+description: 区分测量、解释与估计，理解信息融合的起点。
+icon: book-open
 ---
 
-# Week 1 Chapter 3：如果机器人不能相信任何一个传感器，它到底应该相信谁？
+# 观测、真实世界与 Belief
+
+> 阅读定位：本部分以直觉和问题拆解为主。涉及具体滤波公式时，应同时确认模型、噪声和独立性假设；严格推导将随 Part II 整理补充。
 
 ## 本章目标
 
@@ -32,11 +36,11 @@ Chapter 2 说明了单靠运动估计会累计误差。Chapter 3 开始处理多
 
 ```mermaid
 flowchart TD
-    R[Reality<br/>真实世界]
-    S[Sensor<br/>传感器]
-    O[Observation<br/>观测]
-    A[Algorithm<br/>解释观测]
-    B[Robot Belief<br/>机器人相信的世界]
+    R["Reality<br/>真实世界"]
+    S["Sensor<br/>传感器"]
+    O["Observation<br/>观测"]
+    A["Algorithm<br/>解释观测"]
+    B["Robot Belief<br/>机器人相信的世界"]
 
     R --> S --> O --> A --> B
 ```
@@ -79,9 +83,9 @@ Camera 输出的是像素，LiDAR 输出的是距离或点云，Encoder 输出�
 
 ```mermaid
 flowchart TD
-    R[Reality<br/>隐藏变量，无法直接访问]
-    O[Observation<br/>机器人实际得到的信息]
-    B[Belief<br/>机器人对世界的估计]
+    R["Reality<br/>隐藏变量，无法直接访问"]
+    O["Observation<br/>机器人实际得到的信息"]
+    B["Belief<br/>机器人对世界的估计"]
 
     R -. 无法直接访问 .-> O
     O --> B
@@ -109,11 +113,11 @@ Camera 可能被逆光、黑暗、模糊、遮挡欺骗；LiDAR 可能被玻璃�
 
 ```mermaid
 flowchart TD
-    I[Image]
-    F[Feature]
-    OF[Optical Flow]
-    S[Semantic Label]
-    D[Depth]
+    I["Image"]
+    F["Feature"]
+    OF["Optical Flow"]
+    S["Semantic Label"]
+    D["Depth"]
 
     I --> F
     I --> OF
@@ -177,7 +181,10 @@ EKF、Particle Filter、Graph Optimization、Bundle Adjustment 都可以放在�
 
 ## 学习中的问题
 
-### Q1：Camera 看到墙，LiDAR 没测到墙，机器人应该相信谁？
+
+<details>
+
+<summary>Q1：Camera 看到墙，LiDAR 没测到墙，机器人应该相信谁？</summary>
 
 不能简单回答“融合”。真正的问题是：
 
@@ -185,7 +192,11 @@ EKF、Particle Filter、Graph Optimization、Bundle Adjustment 都可以放在�
 
 它需要考虑传感器当前条件、历史 Belief、环境先验、观测质量、模型预测和不确定性。这个问题会引出概率、Belief 和后续 Kalman Gain。
 
-### Q2：Belief 应该立刻清零，还是逐渐变化？
+</details>
+
+<details>
+
+<summary>Q2：Belief 应该立刻清零，还是逐渐变化？</summary>
 
 如果机器人原来高度相信前方有墙，突然一帧 Camera 看不到墙，Belief 不应立刻变成 `0`。更合理的做法是根据观测可靠性和历史信息逐步更新。
 
@@ -193,16 +204,18 @@ EKF、Particle Filter、Graph Optimization、Bundle Adjustment 都可以放在�
 
 ```mermaid
 flowchart TD
-    P[已有 Belief]
-    Z[新 Observation]
-    C[评估观测可靠性]
-    U[更新 Belief]
+    P["已有 Belief"]
+    Z["新 Observation"]
+    C["评估观测可靠性"]
+    U["更新 Belief"]
 
     P --> U
     Z --> C --> U
 ```
 
 ---
+
+</details>
 
 ## 本章小结
 
@@ -224,11 +237,11 @@ flowchart TD
 
 ## 下一章
 
-[[Week 1 Chapter 4|Week 1 Chapter 4：为什么机器人维护的是一个概率分布，而不是一个位置？]]
+[Week 1 Chapter 4：为什么机器人维护的是一个概率分布，而不是一个位置？](belief-over-pose.md)
 
 下一章进一步讨论：为什么 Localization 维护的是 Belief over Pose，而不是单个 Pose。
 
 ## 相关笔记
 
-- [[Week 1 Chapter 2|Week 1 Chapter 2：为什么机器人会迷路？]]
+- [Week 1 Chapter 2：为什么机器人会迷路？](odometry-and-drift.md)
 - 可后续沉淀概念：Observation、Reality、Belief、Information Fusion、Point Cloud

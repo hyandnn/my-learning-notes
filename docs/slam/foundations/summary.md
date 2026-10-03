@@ -1,5 +1,5 @@
 ---
-title: Week 1 Summary：课程总结与 Week 2 调整
+title: Part I 回顾与自测
 course: Robot Perception & SLAM
 part: Part I Robot Foundations
 week: 1
@@ -10,9 +10,13 @@ tags:
   - state-estimation
   - probabilistic-robotics
 status: organized
+description: 把系统、状态、模型、Belief 和融合串成一条主线。
+icon: book-open
 ---
 
-# Week 1 Summary：课程总结与 Week 2 调整
+# Part I 回顾与自测
+
+> 阅读定位：本部分以直觉和问题拆解为主。涉及具体滤波公式时，应同时确认模型、噪声和独立性假设；严格推导将随 Part II 整理补充。
 
 ## 本周定位
 
@@ -42,11 +46,11 @@ Chapter 1 建立了机器人软件信息流：
 
 ```mermaid
 flowchart TD
-    S[Sensor]
-    P[Perception]
-    L[Localization & Mapping]
-    PL[Planning]
-    C[Control]
+    S["Sensor"]
+    P["Perception"]
+    L["Localization & Mapping"]
+    PL["Planning"]
+    C["Control"]
 
     S --> P --> L --> PL --> C
 ```
@@ -84,11 +88,11 @@ Chapter 5 开始讨论：
 
 ```mermaid
 flowchart TD
-    S[State]
-    P[Prediction]
-    O[Observation]
-    C[Correction]
-    B[Updated Belief]
+    S["State"]
+    P["Prediction"]
+    O["Observation"]
+    C["Correction"]
+    B["Updated Belief"]
 
     S --> P --> O --> C --> B --> S
 ```
@@ -159,10 +163,10 @@ Localization 输出的不是一个绝对 Pose，而是 Belief over Pose。Pose �
 
 ```mermaid
 flowchart TD
-    T[思想]
-    M[数学]
-    C[代码]
-    E[工程]
+    T["思想"]
+    M["数学"]
+    C["代码"]
+    E["工程"]
 
     T --> M --> C --> E --> T
 ```
@@ -227,6 +231,11 @@ Week 2 建议从 Chapter 9 开始：
 
 ## 相关笔记
 
-- [[Week 1 Chapter 1|Week 1 Chapter 1：机器人到底是什么？]]
-- [[Week 1 Chapter 5.5|Week 1 Chapter 5.5：为什么机器人能够利用时间？]]
-- [[Week 1 Chapter 8|Week 1 Chapter 8：如果世界上没有 Kalman Filter，我们能不能自己推导出来？]]
+- [Week 1 Chapter 1：机器人到底是什么？](robot-systems.md)
+- [Week 1 Chapter 5.5：为什么机器人能够利用时间？](state-and-time.md)
+- [Week 1 Chapter 8：如果世界上没有 Kalman Filter，我们能不能自己推导出来？](kalman-gain-intuition.md)
+
+
+## 后续阅读
+
+下一阶段进入[概率状态估计与空间估计](../../roadmap.md)，该页说明当前进度与已有材料。

@@ -1,5 +1,5 @@
 ---
-title: Week 1 Chapter 5.5：为什么机器人能够利用时间？
+title: 状态与时间连续性
 course: Robot Perception & SLAM
 part: Part I Robot Foundations
 week: 1
@@ -12,9 +12,13 @@ tags:
   - markov-assumption
   - temporal-consistency
 status: organized
+description: 状态设计、预测与 Markov 假设之间的关系。
+icon: book-open
 ---
 
-# Week 1 Chapter 5.5：为什么机器人能够利用时间？
+# 状态与时间连续性
+
+> 阅读定位：本部分以直觉和问题拆解为主。涉及具体滤波公式时，应同时确认模型、噪声和独立性假设；严格推导将随 Part II 整理补充。
 
 ## 本章目标
 
@@ -32,11 +36,11 @@ Chapter 5 讨论 Belief 如何被 Observation 更新。本章把“时间”正�
 
 ```mermaid
 flowchart TD
-    X1[State t-1]
-    U[Motion / Action]
-    X2[State t]
-    Z[Observation t]
-    B[Belief t]
+    X1["State t-1"]
+    U["Motion / Action"]
+    X2["State t"]
+    Z["Observation t"]
+    B["Belief t"]
 
     X1 --> U --> X2 --> Z --> B
 ```
@@ -162,24 +166,31 @@ Kalman Filter 不是从公式开始，而是从 State Design 开始。如果 Sta
 
 ## 学习中的问题
 
-### Q1：为什么 Ground Detection、Tracking、Kalman、SLAM 看起来不同，却都在利用时间连续性？
+
+<details>
+
+<summary>Q1：为什么 Ground Detection、Tracking、Kalman、SLAM 看起来不同，却都在利用时间连续性？</summary>
 
 因为它们维护的 State 不同，但共同逻辑相同：
 
 ```mermaid
 flowchart TD
-    S[State]
-    P[Prediction]
-    O[Observation]
-    C[Correction]
-    B[Updated Belief]
+    S["State"]
+    P["Prediction"]
+    O["Observation"]
+    C["Correction"]
+    B["Updated Belief"]
 
     S --> P --> O --> C --> B --> S
 ```
 
 它们都是用当前 State 预测未来，再用新 Observation 修正预测。
 
-### Q2：State 是“和未来相关”的因素集合吗？
+</details>
+
+<details>
+
+<summary>Q2：State 是“和未来相关”的因素集合吗？</summary>
 
 更准确地说：
 
@@ -187,11 +198,17 @@ flowchart TD
 
 “相关”太宽，很多因素都可能相关；State 要求的是“预测未来不可缺少”。
 
-### Q3：Markov Chain 和 Markov Assumption 有什么区别？
+</details>
+
+<details>
+
+<summary>Q3：Markov Chain 和 Markov Assumption 有什么区别？</summary>
 
 Markov Chain 强调状态之间的转移链；机器人中更常用的是 Markov Assumption 和 State Space Model。机器人状态不可直接完全观测，Observation 只是 State 的证据，所以后续会进一步进入 Hidden Markov Model 和 Bayes Filter。
 
 ---
+
+</details>
 
 ## 本章小结
 
@@ -214,11 +231,11 @@ Markov Chain 强调状态之间的转移链；机器人中更常用的是 Markov
 
 ## 下一章
 
-[[Week 1 Chapter 6|Week 1 Chapter 6：为什么机器人学本质上是一门建模的学科？]]
+[Week 1 Chapter 6：为什么机器人学本质上是一门建模的学科？](modeling.md)
 
 下一章从 State 进一步走向 Model：机器人到底如何把世界规律写成可预测、可修正的模型？
 
 ## 相关笔记
 
-- [[Week 1 Chapter 5|Week 1 Chapter 5：贝叶斯思想到底是什么？]]
+- [Week 1 Chapter 5：贝叶斯思想到底是什么？](bayesian-thinking.md)
 - 可后续沉淀概念：State、Prediction、Temporal Consistency、Markov Assumption、State Space Model

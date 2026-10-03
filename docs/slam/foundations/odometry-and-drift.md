@@ -1,5 +1,5 @@
 ---
-title: Week 1 Chapter 2：为什么机器人会迷路？
+title: 里程计与定位漂移
 course: Robot Perception & SLAM
 part: Part I Robot Foundations
 week: 1
@@ -12,9 +12,13 @@ tags:
   - encoder
   - uncertainty
 status: organized
+description: 为什么运动估计会累积误差，环境观测怎样帮助修正。
+icon: book-open
 ---
 
-# Week 1 Chapter 2：为什么机器人会迷路？
+# 里程计与定位漂移
+
+> 阅读定位：本部分以直觉和问题拆解为主。涉及具体滤波公式时，应同时确认模型、噪声和独立性假设；严格推导将随 Part II 整理补充。
 
 ## 本章目标
 
@@ -32,11 +36,11 @@ Chapter 1 建立了机器人软件的信息流。Chapter 2 开始解释 `Localiz
 
 ```mermaid
 flowchart TD
-    R[机器人刚开机<br/>世界一片空白]
-    E[Encoder 记录轮子运动]
-    O[Odometry 推断机器人运动]
-    ERR[运动估计产生累计误差]
-    L[Localization<br/>持续修正位置相信程度]
+    R["机器人刚开机<br/>世界一片空白"]
+    E["Encoder 记录轮子运动"]
+    O["Odometry 推断机器人运动"]
+    ERR["运动估计产生累计误差"]
+    L["Localization<br/>持续修正位置相信程度"]
 
     R --> E --> O --> ERR --> L
 ```
@@ -97,10 +101,10 @@ Encoder 不直接测量机器人走了多远，它测量的是：
 
 ```mermaid
 flowchart TD
-    A[第 1 次运动估计<br/>误差很小]
-    B[第 10 次运动估计<br/>误差叠加]
-    C[第 100 次运动估计<br/>位置明显漂移]
-    D[机器人开始迷路]
+    A["第 1 次运动估计<br/>误差很小"]
+    B["第 10 次运动估计<br/>误差叠加"]
+    C["第 100 次运动估计<br/>位置明显漂移"]
+    D["机器人开始迷路"]
 
     A --> B --> C --> D
 ```
@@ -161,7 +165,10 @@ Encoder、Camera、LiDAR、IMU 都是在提供不同来源的信息。机器人�
 
 ## 学习中的问题
 
-### Q1：Encoder 有累计误差，为什么现实中的扫地机器人还能工作一小时并回充？
+
+<details>
+
+<summary>Q1：Encoder 有累计误差，为什么现实中的扫地机器人还能工作一小时并回充？</summary>
 
 因为机器人不会只依赖 Encoder。它会通过环境特征、地图匹配、回环检测、充电座识别等方式，把当前观测和已有地图或目标进行匹配，从而修正之前积累的运动误差。
 
@@ -169,11 +176,11 @@ Encoder、Camera、LiDAR、IMU 都是在提供不同来源的信息。机器人�
 
 ```mermaid
 flowchart TD
-    O[Odometry 预测当前位置]
-    Z[环境观测]
-    M[地图或已知目标]
-    C[匹配与修正]
-    B[更新位置 Belief]
+    O["Odometry 预测当前位置"]
+    Z["环境观测"]
+    M["地图或已知目标"]
+    C["匹配与修正"]
+    B["更新位置 Belief"]
 
     O --> C
     Z --> C
@@ -181,7 +188,11 @@ flowchart TD
     C --> B
 ```
 
-### Q2：如果有完美 Encoder，SLAM 还会存在吗？
+</details>
+
+<details>
+
+<summary>Q2：如果有完美 Encoder，SLAM 还会存在吗？</summary>
 
 完美 Encoder 可以极大削弱 Localization 的漂移问题，但不等于解决 Mapping。
 
@@ -195,6 +206,8 @@ flowchart TD
 所以“完美运动估计”不能替代“理解环境”。SLAM 的 Localization 部分可能变得简单，但 Mapping 和环境理解仍然存在。
 
 ---
+
+</details>
 
 ## 本章小结
 
@@ -216,11 +229,11 @@ flowchart TD
 
 ## 下一章
 
-[[Week 1 Chapter 3|Week 1 Chapter 3：如果机器人不能相信任何一个传感器，它到底应该相信谁？]]
+[Week 1 Chapter 3：如果机器人不能相信任何一个传感器，它到底应该相信谁？](observation-and-belief.md)
 
 下一章进入现代机器人学的核心问题：所有传感器都会骗人时，机器人怎样融合信息并维护自己的 Belief？
 
 ## 相关笔记
 
-- [[Week 1 Chapter 1|Week 1 Chapter 1：机器人到底是什么？]]
+- [Week 1 Chapter 1：机器人到底是什么？](robot-systems.md)
 - 可后续沉淀概念：Odometry、Encoder、IMU、Coordinate Frame、Localization
