@@ -40,6 +40,12 @@
 | [[Courses/Part II Probabilistic State Estimation/Week 2 Chapter 23|Chapter 23：Non-Gaussian Filters]] | Histogram、Particle Filter 与方法选择 |
 | [[Courses/Part II Probabilistic State Estimation/Week 2 Summary|Week 2 Summary]] | Part II 统一知识地图与阶段检查 |
 
+### Part III：Spatial State Estimation
+
+| 笔记 | 说明 |
+| --- | --- |
+| [[Courses/Part III Spatial State Estimation/Week 3 Chapter 24|Chapter 24：Coordinate Frames & Transformations]] | 区分几何对象本身与它在某一参考系中的坐标；变换把同一点写到另一个坐标系 |
+
 ## 阅读顺序
 
 ```mermaid

@@ -66,11 +66,19 @@ Part I 与 Part II 的边界是：Chapter 1–8 回答 State、Belief、Model �
 - Observability 与 Information Strength 作为连续主题合并记录为 Chapter 18-19。
 - Week 2 的实际密度远高于最初按自然周划分的计划；`Week` 在这里表示学习阶段，不强制等于七个自然日。
 
+## Part III 实际进度
+
+| Chapter | 主题 | 状态 |
+| --- | --- | --- |
+| 24 | Coordinate Frames 与 Transformations | 完成 |
+
+下一章按笔记约定进入 Chapter 25：2D Rotation 与 SO(2)。
+
 ## 下一阶段建议：Part III Spatial State Estimation
 
 建议顺序：
 
-1. Coordinate Frames 与 Transform Tree
+1. Coordinate Frames 与 Transform Tree — 已记为 Chapter 24
 2. 2D Pose、SO(2) 与 SE(2)
 3. 3D Rotation、SO(3) 与 Quaternion
 4. Rigid Transform、SE(3) 与 Lie Algebra 直觉
