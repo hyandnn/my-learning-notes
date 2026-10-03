@@ -11,7 +11,7 @@
 
 保留课程主线、推理、问答和反例。先交代目标、前置知识与符号，再给公式与解释；区分定义、假设、近似和经验结论。已有课程整理规则见 [LearningNoteRules](../SLAM/.regulation/LearningNoteRules.md)。
 
-公开正文使用标准 Markdown 链接；问答使用 `<details>`；流程图使用 `mermaid` 代码块；公式使用 LaTeX。新增外部引用必须注明具体来源。
+公开正文使用标准 Markdown 链接；问答使用 `<details>`；流程图使用 `mermaid` 代码块；公式使用 LaTeX。GitBook 正文的行内与块级公式都使用 `$$...$$`，块级公式独占段落；这是 GitBook 的 Markdown 语法，与草稿中 Obsidian 的单 `$` 行内语法区分。新增外部引用必须注明具体来源。
 
 正文移动或改名时同步修复引用、目录和迁移记录，已公开路径必要时配置重定向。
 

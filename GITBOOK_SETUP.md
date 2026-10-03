@@ -2,6 +2,11 @@
 
 ## 当前结构
 
+- 在线阅读：https://roborock-1.gitbook.io/merci-robotics-notes/
+- GitBook 管理：https://app.gitbook.com/o/sYxx5x49IVH1o6Swx7bu/sites/site_2vD56
+- 已完成：20 个页面的首次内容导入、外观配置和公开发布。
+- 待完成：GitHub App 与本站点的首次持续 Git Sync 连接，以及一次提交回写验证。
+
 - 内容仓库：`hyandnn/my-learning-notes`。
 - 发布分支：`main`。
 - 内容目录：`docs/`。

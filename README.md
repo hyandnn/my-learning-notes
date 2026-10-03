@@ -4,6 +4,8 @@
 
 ## 阅读入口
 
+[在线阅读 · Robotics Notes](https://roborock-1.gitbook.io/merci-robotics-notes/)
+
 - [网站首页源文件](docs/README.md)
 - [Part I · 机器人基础](docs/slam/foundations/README.md)
 - [术语表](docs/reference/glossary.md)与[贝叶斯更新例题](docs/reference/bayes-worked-example.md)

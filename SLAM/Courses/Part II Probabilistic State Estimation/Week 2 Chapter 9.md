@@ -153,6 +153,7 @@ $$
 
 ## 相关笔记
 
-- [[../Part I Robot Foundations/Week 1 Chapter 3|Week 1 Chapter 3：Observation、Reality 与 Belief]]
-- [[../Part I Robot Foundations/Week 1 Chapter 4|Week 1 Chapter 4：Belief over Pose]]
+- [Week 1 Chapter 3：Observation、Reality 与 Belief](../../../docs/slam/foundations/observation-and-belief.md)
+- [Week 1 Chapter 4：Belief over Pose](../../../docs/slam/foundations/belief-over-pose.md)
+
 

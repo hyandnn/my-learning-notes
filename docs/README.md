@@ -1,12 +1,7 @@
 ---
 description: 从机器人系统出发，理解状态、观测、不确定性与空间几何。
 icon: house
-cover: assets/robotics-cover.svg
-coverY: 0
 layout:
-  cover:
-    visible: true
-    size: full
   title:
     visible: true
   description:
@@ -20,6 +15,8 @@ layout:
 ---
 
 # 机器人学习笔记
+
+![Robotics Notes：感知、状态与几何](assets/robotics-cover.svg)
 
 从传感器读数到可解释的估计，再到机器人对空间与运动的理解。
 
