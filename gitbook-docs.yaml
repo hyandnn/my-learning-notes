@@ -1,0 +1,12 @@
+$schema: https://api.gitbook.com/gitbook-docs.yaml
+site:
+  title: Merci · Robotics Notes
+  structure:
+    - type: space
+      key: space-1
+      title: 机器人学习笔记
+      path: robotics-notes
+      default: true
+      content:
+        directory: ./docs
+        language: zh
