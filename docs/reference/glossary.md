@@ -24,6 +24,17 @@ icon: spell-check
 | Uncertainty | 不确定性：对可能取值范围或分布的描述，不等同于已知误差 | [Kalman Gain 直觉](../slam/foundations/kalman-gain-intuition.md) |
 | Kalman Gain | 卡尔曼增益：在相应模型与噪声假设下决定观测残差怎样修正状态 | [Kalman Gain 直觉](../slam/foundations/kalman-gain-intuition.md) |
 | Markov assumption | Markov 假设：给定当前状态后，转移不再直接依赖更早历史 | [状态与时间](../slam/foundations/state-and-time.md) |
+| SLAM | 同时定位与建图：联合估计轨迹与环境表示 | [相关章节](../slam/mapping/slam-formulation.md) |
+| EKF-SLAM | 用联合 Gaussian 与协方差表示机器人和地标的状态相关性 | [相关章节](../slam/mapping/ekf-slam.md) |
+| Gauge Freedom | 相对观测不改变的全局坐标／尺度自由度 | [相关章节](../slam/mapping/gauge-freedom.md) |
+| Keyframe | 关键帧：保留有效约束并控制计算规模的状态选择 | [相关章节](../slam/mapping/keyframes-local-mapping.md) |
+| Bundle Adjustment | 光束法平差：联合优化相机与三维地标的重投影残差 | [相关章节](../slam/mapping/bundle-adjustment.md) |
+| Schur Complement | Schur 补：消去部分增量，将其影响保留在缩减系统中 | [相关章节](../slam/mapping/bundle-adjustment.md) |
+| Factor Graph | 因子图：用变量与局部因子表示函数或概率分解 | [相关章节](../slam/mapping/factor-graphs.md) |
+| Marginalization | 边缘化：消去变量并将历史信息压缩到保留变量 | [相关章节](../slam/mapping/factor-graphs.md) |
+| Pose Graph | 位姿图：以位姿为节点、以位姿约束为主要边的图 | [相关章节](../slam/mapping/pose-graph.md) |
+| Loop Closure | 回环：验证历史重访并加入跨时间几何约束 | [相关章节](../slam/mapping/loop-closure.md) |
+| IMU Preintegration | IMU 预积分：把关键状态之间高频惯性观测压成相对运动约束 | [相关章节](../slam/mapping/visual-lidar-inertial.md) |
 
 ## 两组容易混淆的关系
 

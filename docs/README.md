@@ -1,5 +1,5 @@
 ---
-description: 从机器人系统出发，理解状态、观测、不确定性与空间几何。
+description: 从机器人系统出发，理解状态估计、空间几何、建图与 SLAM 系统。
 icon: house
 layout:
   width: default
@@ -39,7 +39,7 @@ layout:
 
 **Part I 已整理为连续阅读路径**：9 篇章节笔记与 1 篇阶段总结，包含补充章节 Chapter 5.5。
 
-Part II 的概率状态估计与 Part III Chapter 24–30 已迁入本站，保留已有推导、例题与自测。具体进度见[学习路线](roadmap.md)。
+Part II 概率状态估计、Part III 空间状态估计与 [Part IV 建图与 SLAM](slam/mapping/README.md)已整理完成，课程覆盖到 Chapter 48，保留推导、例题与折叠自测。下一阶段进入 Part V，具体进度见[学习路线](roadmap.md)。
 
 ## 读完第一部分，你应当能回答
 

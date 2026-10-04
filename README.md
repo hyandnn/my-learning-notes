@@ -36,4 +36,4 @@ python3 scripts/check_docs.py
 
 具体步骤见 [CONTRIBUTING.md](CONTRIBUTING.md)、[发布规则](.regulation/Publishing.md)和 [GitBook 接入说明](GITBOOK_SETUP.md)。
 
-已有非空内容已全部迁入 `docs/`：Part I、Part II、Part III Chapter 24–30、状态思维与课程计划。旧源目录与空占位文件已移除。
+已有学习内容已整理到 `docs/`：Part I–IV（课程覆盖到 Chapter 48）、阶段回顾与自测、状态思维和课程计划。下一阶段进入 Part V；已使用的原始课堂草稿已清理。
