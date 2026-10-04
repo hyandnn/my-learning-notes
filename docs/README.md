@@ -2,6 +2,7 @@
 description: 从机器人系统出发，理解状态、观测、不确定性与空间几何。
 icon: house
 layout:
+  width: default
   title:
     visible: true
   description:
@@ -12,11 +13,19 @@ layout:
     visible: false
   pagination:
     visible: false
+  metadata:
+    visible: true
+  tags:
+    visible: true
+  actions:
+    visible: true
+  anchors:
+    visible: false
 ---
 
 # 机器人学习笔记
 
-![Robotics Notes：感知、状态与几何](assets/robotics-cover.svg)
+![Robotics Notes：感知、状态与几何](.gitbook/assets/robotics-cover.svg)
 
 从传感器读数到可解释的估计，再到机器人对空间与运动的理解。
 
@@ -24,11 +33,7 @@ layout:
 
 ## 从这里开始
 
-<table data-view="cards"><thead><tr><th></th><th></th><th data-hidden data-card-target data-type="content-ref"></th></tr></thead><tbody>
-<tr><td><strong>阅读指南</strong></td><td>了解前置知识、阅读顺序和笔记的使用方式。</td><td><a href="getting-started.md">阅读指南</a></td></tr>
-<tr><td><strong>SLAM · 机器人基础</strong></td><td>从系统信息流走到状态、Belief 与预测校正循环。</td><td><a href="slam/foundations/README.md">机器人基础</a></td></tr>
-<tr><td><strong>术语与公式</strong></td><td>对照中英文概念，复算一个完整的贝叶斯更新例子。</td><td><a href="reference/README.md">术语与公式</a></td></tr>
-</tbody></table>
+<table data-view="cards"><thead><tr><th></th><th></th><th data-hidden data-card-target data-type="content-ref"></th></tr></thead><tbody><tr><td><strong>阅读指南</strong></td><td>了解前置知识、阅读顺序和笔记的使用方式。</td><td><a href="getting-started.md">getting-started.md</a></td></tr><tr><td><strong>SLAM · 机器人基础</strong></td><td>从系统信息流走到状态、Belief 与预测校正循环。</td><td><a href="slam/foundations/">foundations</a></td></tr><tr><td><strong>术语与公式</strong></td><td>对照中英文概念，复算一个完整的贝叶斯更新例子。</td><td><a href="reference/">reference</a></td></tr></tbody></table>
 
 ## 当前可以读什么
 
@@ -38,10 +43,10 @@ Part II 的概率状态估计、Part III 的空间状态估计已有学习材料
 
 ## 读完第一部分，你应当能回答
 
-- 感知、定位、建图、规划和控制分别解决什么问题？
-- 为什么观测不等于真实状态，为什么估计需要表达不确定性？
-- 状态、Belief、模型与预测校正之间怎样衔接？
-- 贝叶斯更新和 Kalman Gain 分别在解决什么问题？
+* 感知、定位、建图、规划和控制分别解决什么问题？
+* 为什么观测不等于真实状态，为什么估计需要表达不确定性？
+* 状态、Belief、模型与预测校正之间怎样衔接？
+* 贝叶斯更新和 Kalman Gain 分别在解决什么问题？
 
 ## 关于这份笔记
 

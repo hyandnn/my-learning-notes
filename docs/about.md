@@ -19,9 +19,13 @@ icon: circle-info
 
 发现影响结论的错误，会在正文注明修正并记录更新。无法确认的内容会标记为待核验；读者可以通过源仓库的 Issue 反馈具体页面与问题。
 
+## 参与修订
+
+欢迎通过源仓库的 Issue 提出勘误，或提交 Pull Request 补充例子与推导。反馈时请注明页面、具体段落和理由；涉及公式时，一并说明假设与符号。修改会经过文档检查与内容核验，再更新到阅读站点。
+
 ## 相关入口
 
-- [个人网站](https://hyandnn.github.io/)
-- [GitHub](https://github.com/hyandnn)
-- [学习笔记源仓库](https://github.com/hyandnn/my-learning-notes)
-- [反馈问题](https://github.com/hyandnn/my-learning-notes/issues/new/choose)
+* [个人网站](https://hyandnn.github.io/)
+* [GitHub](https://github.com/hyandnn)
+* [学习笔记源仓库](https://github.com/hyandnn/my-learning-notes)
+* [反馈问题](https://github.com/hyandnn/my-learning-notes/issues/new/choose)
