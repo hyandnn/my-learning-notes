@@ -2,6 +2,8 @@
 
 ## 当前结构
 
+已有内容已全部迁入 `docs/`；早期 20 页导入与验收记录保留在下方作为历史记录。新增课程的操作步骤见 [CONTRIBUTING.md](CONTRIBUTING.md)。
+
 - 在线阅读：https://roborock-1.gitbook.io/merci-robotics-notes/
 - GitBook 管理：https://app.gitbook.com/o/sYxx5x49IVH1o6Swx7bu/sites/site_2vD56
 - 已完成：20 个页面的首次内容导入、外观配置和公开发布。
@@ -45,7 +47,7 @@ GitBook 的 GitHub App 与 ChatGPT 中的 GitBook 插件是两个独立授权。
 
 GitBook 支持双向同步；若在 GitBook 修改内容，先拉取回写到仓库的提交再继续本地工作。
 
-GitBook 回写会将图片保存到 `docs/.gitbook/assets/`，并可能把指向同一仓库源材料的 GitHub 链接转成相对路径。文档检查支持 `SLAM/` 中已有的公开源材料链接；图片仍须位于 `docs/`，草稿与实验不作为正文链接目标。
+GitBook 回写会将图片保存到 `docs/.gitbook/assets/`。全部学习正文现已迁入 `docs/`，正文链接与图片保持在发布目录内；草稿不直接作为正文链接目标。
 
 日常检查：`python3 scripts/check_docs.py`。修改检查脚本时，另运行 `python3 -m unittest discover -s scripts -p 'test_*.py'`，验证源材料链接、目录锚点、缺失目标和路径边界。
 

@@ -27,21 +27,20 @@ class LinkChecks(unittest.TestCase):
             output = io.StringIO()
             with patch.object(check_docs, 'ROOT', root), \
                  patch.object(check_docs, 'DOCS', docs), \
-                 patch.object(check_docs, 'SOURCES', root / 'SLAM'), \
                  contextlib.redirect_stdout(output):
                 result = check_docs.check()
             return result, output.getvalue()
 
-    def test_exported_source_directory_with_spaces(self):
+    def test_published_directory_with_spaces(self):
         result, _ = self.check_fixture(
-            '[Source](../SLAM/Courses/Part%20II/)',
-            {'SLAM/Courses/Part II/chapter.md': '# Source'})
+            '[Source](chapter/Part%20II/)',
+            {'docs/chapter/Part II/chapter.md': '# Source'})
         self.assertEqual(result, 0)
 
     def test_missing_source_still_fails(self):
         result, output = self.check_fixture('[Source](../SLAM/missing.md)', {})
         self.assertEqual(result, 1)
-        self.assertIn('missing target', output)
+        self.assertIn('link leaves docs', output)
 
     def test_link_cannot_escape_repository(self):
         result, output = self.check_fixture('[Outside](../../outside.md)', {})

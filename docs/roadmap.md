@@ -1,39 +1,23 @@
 ---
-description: 已发布内容、已有学习材料和下一阶段的整理计划。
+description: 已完成的课程与下一阶段学习计划。
 icon: list-check
 ---
 
 # 学习路线与进度
 
-Part II 与 Part III 的源笔记目前在 GitHub 阅读；完成主题整理与内容核验后，再逐步迁入本站。
+已有非空学习正文已全部迁入本站；正文只在 `docs/` 维护。
 
-这份路线按知识依赖安排，实际进度以已完成内容为准。
+| 阶段 | 已有内容 | 入口 |
+| --- | --- | --- |
+| Part I | 9 篇章节与 1 篇总结 | [机器人基础](slam/foundations/README.md) |
+| Part II | 15 篇章节与 1 篇总结；包含 Chapter 11.5 和合并的 Chapter 18–19 | [概率状态估计](slam/probabilistic/README.md) |
+| Part III | Chapter 24–30，共 7 篇章节 | [空间状态估计](slam/spatial/README.md) |
+| 专题 | 状态、观测、预测与校正的任务拆解方法 | [状态思维](reference/state-thinking.md) |
 
-## Part I · 机器人基础
+## 下一阶段
 
-9 篇章节与 1 篇阶段总结已进入网站。先建立系统信息流，再理解观测、Belief、状态、模型与预测校正。
+从 Chapter 31 开始继续空间观测模型与位姿估计，具体标题在实际学习时确定。此前 Chapter 31–36 的空文件已移除，不表示这些课程已经完成。
 
-[开始阅读](slam/foundations/)
+迁移保留课程内容并修复公开链接与公式排版；这不代表每一项技术结论都经过全面审校。遇到存疑内容，在对应章节记录问题和依据，再进行修订。
 
-## Part II · 概率状态估计
-
-仓库已有 15 篇章节笔记与 1 篇阶段总结，包含 Chapter 11.5 和合并的 Chapter 18–19。下一阶段按以下主题继续整理：
-
-* 信息、不确定性、观测验证和数据关联。
-* 约束、Belief 表示与 Gaussian。
-* Bayes Filter、KF、位置速度模型与可观测性。
-* Jacobian、EKF、UKF 与非 Gaussian 方法。
-
-[查看已有材料](../SLAM/Courses/Part%20II%20Probabilistic%20State%20Estimation/)
-
-## Part III · 空间状态估计
-
-仓库已有 Chapter 24–30 的学习材料。Chapter 31–36 当前是预留文件，尚无正文。
-
-这一部分将继续围绕坐标系、变换、姿态与空间观测展开。网站整理时会统一标题、记号和链接，并逐章检查推导条件。
-
-[查看已有材料](../SLAM/Courses/Part%20III%20Spatial%20State%20Estimation/)
-
-## 怎样推进
-
-每次整理一个相对完整的主题：补足前置知识与符号定义，核对计算，保留问答与反例，再加入网站目录。后续实验会与对应章节关联，帮助验证模型和方法边界。
+完整的学习轨迹与后续方向见[课程计划](slam/study-plan.md)。

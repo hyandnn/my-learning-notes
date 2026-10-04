@@ -8,6 +8,8 @@
 
 - [网站首页源文件](docs/README.md)
 - [Part I · 机器人基础](docs/slam/foundations/README.md)
+- [Part II · 概率状态估计](docs/slam/probabilistic/README.md)
+- [Part III · 空间状态估计](docs/slam/spatial/README.md)
 - [术语表](docs/reference/glossary.md)与[贝叶斯更新例题](docs/reference/bayes-worked-example.md)
 - [学习路线与进度](docs/roadmap.md)
 
@@ -16,7 +18,6 @@
 | 路径 | 用途 |
 | --- | --- |
 | `docs/` | 网站内容的唯一正文来源，首页与导航也在这里维护 |
-| `SLAM/` | 尚未迁入网站的课程、学习进度和主题材料 |
 | `drafts/` | 新增草稿与待整理内容 |
 | `experiments/` | 与章节对应的实验代码、Notebook 与结果 |
 | `.regulation/` | 公开内容与发布规则 |
@@ -35,4 +36,4 @@ python3 scripts/check_docs.py
 
 具体步骤见 [CONTRIBUTING.md](CONTRIBUTING.md)、[发布规则](.regulation/Publishing.md)和 [GitBook 接入说明](GITBOOK_SETUP.md)。
 
-Part I 的文件迁移关系见 [MIGRATION.md](MIGRATION.md)。
+已有非空内容已全部迁入 `docs/`：Part I、Part II、Part III Chapter 24–30、状态思维与课程计划。旧源目录与空占位文件已移除。
