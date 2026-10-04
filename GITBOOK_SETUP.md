@@ -8,7 +8,8 @@
 - 已补充：PR / main 的自动文档检查、内容纠错模板与维护说明。
 - 已完成：首页隐藏目录、页内大纲和首页翻页，保留正文页的目录与章节翻页。
 - 已检查：GitBook 编辑器阅读视图中的首页封面与卡片、卡片跳转、贝叶斯公式、表格、折叠答案和 Mermaid 流程图（包括全屏查看）。
-- 待完成：GitHub App 安装与首次持续 Git Sync 连接、双向同步验证，以及公开页的桌面和手机视觉验收。
+- 已完成：GitBook.com GitHub App 安装，仓库范围仅选择 `hyandnn/my-learning-notes`。
+- 待完成：GitBook 侧选择已有 GitHub 安装、首次持续 Git Sync 连接、双向同步验证，以及公开页的桌面和手机视觉验收。
 
 - 内容仓库：`hyandnn/my-learning-notes`。
 - 发布分支：`main`。
@@ -33,7 +34,9 @@ GitBook 插件可以编辑、导入和发布内容；持续 Git Sync 的连接�
 
 如果采用单空间从仓库根连接，使用根目录 `.gitbook.yaml` 的 `root: ./docs/`。
 
-GitBook 的 GitHub App 与 ChatGPT 中的 GitBook 插件是两个独立授权。当前已在安装页面选择 **Only select repositories → hyandnn/my-learning-notes**，尚未点击 Install。应用请求元数据读取，以及代码、提交状态和 Pull Request 的读写权限，用于双向同步。完成安装后仍须选择 `main`、映射 `/docs` 并执行首次同步；页面上的 Pending 不代表已经连接成功。
+GitBook 的 GitHub App 与 ChatGPT 中的 GitBook 插件是两个独立授权。已完成 **Only select repositories → hyandnn/my-learning-notes** 范围的 GitHub App 安装。应用权限为元数据读取，以及代码、提交状态和 Pull Request 的读写，用于双向同步。
+
+GitBook 侧目前仍显示 Pending / `unauthenticated`，尚未完成“Select GitHub Installation”中的已有安装选择。该页面在当前云浏览器无法读取，新开页面返回 `ERR_BLOCKED_BY_CLIENT`，需要在保留的浏览器会话中完成选择后继续。随后仍须选择 `main`、映射 `/docs` 并执行首次同步；GitHub App 已安装并不等于 Git Sync 已连接。
 
 站点级 Git Sync 会生成 `gitbook-docs.yaml` 映射文件。保留界面为现有空间生成的稳定 `key`，不为已经发布的空间随意换 key。具体以 [GitHub Sync 官方步骤](https://gitbook.com/docs/docs-as-code/git-sync/enabling-github-sync)和[内容配置文档](https://gitbook.com/docs/docs-as-code/git-sync/content-configuration)为准。
 
