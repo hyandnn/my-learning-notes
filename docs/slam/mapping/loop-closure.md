@@ -1863,9 +1863,7 @@ Relocalization 和 Loop Closure 的前半部分非常像，但：
 
 ### Q1：为什么图像检索分数非常高，也不能直接加入 Loop Edge？
 
-<details>
-
-<summary>参考答案</summary>
+**参考答案**
 
 因为高 retrieval score 只表示：
 
@@ -1883,7 +1881,6 @@ $$
 
 解释， 才应该形成 Loop Constraint。
 
-</details>
 
 ### Q2：为什么 Loop Closure 宁可漏检一些，也不能过于激进？
 
@@ -1907,9 +1904,7 @@ Precision
 
 ### Q3：为什么需要排除当前帧附近的历史帧？
 
-<details>
-
-<summary>参考答案</summary>
+**参考答案**
 
 因为：
 
@@ -1929,13 +1924,10 @@ $$
 
 temporal exclusion
 
-</details>
 
 ### Q4：为什么连续多帧都支持同一个历史区域，比单帧高分更可靠？
 
-<details>
-
-<summary>参考答案</summary>
+**参考答案**
 
 因为随机 appearance aliasing 可能发生一次。
 
@@ -1957,7 +1949,6 @@ $$
 
 Evidence 明显更强。
 
-</details>
 
 ### Q5：Loop Closure 和 Relocalization 有什么本质区别？
 
@@ -2001,9 +1992,7 @@ MapPoints 重新 association / merge， 才能得到真正统一地图。
 
 ### Q7：为什么 Learned Place Recognition 也不能完全取代 Geometry？
 
-<details>
-
-<summary>参考答案</summary>
+**参考答案**
 
 因为 neural descriptor 本质仍然是在解决：
 
@@ -2029,7 +2018,6 @@ $$
 
 这些要通过 geometric constraints 得到。
 
-</details>
 
 ### Q8：如果一个环境完全没有 Loop，SLAM 能不能做到永远不漂？
 

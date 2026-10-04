@@ -2245,9 +2245,7 @@ Appearance similarity 必须经过 geometric verification
 
 ### Q1：为什么已经有 descriptor matching 之后，还要 RANSAC？
 
-<details>
-
-<summary>参考答案</summary>
+**参考答案**
 
 因为 descriptor 只说明：
 
@@ -2267,13 +2265,10 @@ RANSAC 用统一几何模型检查：
 
 Appearance  →  Geometry 是两层 verification。
 
-</details>
 
 ### Q2：地图已经建立后，为什么 3D-2D 比 2D-2D 更适合 Tracking？
 
-<details>
-
-<summary>参考答案</summary>
+**参考答案**
 
 因为已知：
 
@@ -2297,13 +2292,10 @@ $$
 
 即 PnP。 而 2D-2D 只能得到相对 Pose，并且 monocular translation 还缺 scale。
 
-</details>
 
 ### Q3：为什么纯旋转情况下 feature matching 可能很好，但 triangulation 很差？
 
-<details>
-
-<summary>参考答案</summary>
+**参考答案**
 
 因为 feature correspondence 和 depth information 是两回事。
 
@@ -2323,7 +2315,6 @@ $$
 
 所以 Depth 无法稳定恢复。
 
-</details>
 
 ### Q4：为什么 500 个 feature 不一定比 100 个 feature 提供更多 Pose information？
 
@@ -2347,9 +2338,7 @@ $$
 
 ### Q5：为什么 dynamic object 会破坏 classical visual odometry？
 
-<details>
-
-<summary>参考答案</summary>
+**参考答案**
 
 因为经典 VO 默认：
 
@@ -2363,13 +2352,10 @@ $$
 
 如果不区分，就会把 object motion 错当成 camera motion。
 
-</details>
 
 ### Q6：Feature Method 和 Direct Method 的 residual 分别通常是什么？
 
-<details>
-
-<summary>参考答案</summary>
+**参考答案**
 
 Feature-based：
 
@@ -2391,13 +2377,10 @@ $$
 r= I_2(\pi(TP))-I_1(p)
 $$
 
-</details>
 
 ### Q7：Stereo 和 Visual Odometry 中的 correspondence，可以怎么统一理解？
 
-<details>
-
-<summary>参考答案</summary>
+**参考答案**
 
 Stereo：
 
@@ -2427,7 +2410,6 @@ $$
 
 只是一个利用已知相机关系求结构，一个利用观测结构反求相机关系。
 
-</details>
 
 ## 相关章节与来源
 

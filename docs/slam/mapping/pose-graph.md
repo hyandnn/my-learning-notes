@@ -1727,9 +1727,7 @@ $$
 
 ### Q1：为什么 Loop Closure 不应该只修改当前 Pose？
 
-<details>
-
-<summary>参考答案</summary>
+**参考答案**
 
 因为 drift 是整个 trajectory 累积产生的。 如果只修改最后一个 Pose，
 
@@ -1741,13 +1739,10 @@ $$
 
 突然出现不合理的大跳变。 正确做法是让所有相关 Poses 在各自 constraint 和 uncertainty 下共同调整。
 
-</details>
 
 ### Q2：为什么 Pose Graph 比 BA 更适合大规模全局优化？
 
-<details>
-
-<summary>参考答案</summary>
+**参考答案**
 
 因为 Pose Graph 不再显式保留大量 landmarks。
 
@@ -1771,13 +1766,10 @@ $$
 
 时计算量差别巨大。
 
-</details>
 
 ### Q3：既然 Pose Graph 更快，为什么不彻底抛弃 BA？
 
-<details>
-
-<summary>参考答案</summary>
+**参考答案**
 
 因为 Pose Graph 使用的是已经被压缩的 relative-pose measurements。 BA 直接利用原始 reprojection observations，
 
@@ -1789,13 +1781,10 @@ $$
 
 通常精度更高。 所以两者解决不同层次的问题。
 
-</details>
 
 ### Q4：为什么错误 Loop Closure 比普通 Odometry Error 危险得多？
 
-<details>
-
-<summary>参考答案</summary>
+**参考答案**
 
 因为 loop edge 通常跨越很长时间：
 
@@ -1805,13 +1794,10 @@ $$
 
 一个错误的强约束会影响大量中间 Poses， 甚至扭曲整张地图。
 
-</details>
 
 ### Q5：Monocular SLAM 为什么常用 Sim(3) 做 Loop Correction？
 
-<details>
-
-<summary>参考答案</summary>
+**参考答案**
 
 因为 monocular trajectory 可能存在：
 
@@ -1825,13 +1811,10 @@ $$
 
 因此可以同时修正长期尺度漂移。
 
-</details>
 
 ### Q6：为什么 Pose Graph 也要固定第一帧？
 
-<details>
-
-<summary>参考答案</summary>
+**参考答案**
 
 因为所有相对 pose constraints 对整体 global transform 不敏感。
 
@@ -1857,13 +1840,10 @@ $$
 
 选定坐标系。
 
-</details>
 
 ### Q7：Pose Graph 优化完以后为什么还可能需要 Global BA？
 
-<details>
-
-<summary>参考答案</summary>
+**参考答案**
 
 因为 Pose Graph 只调整 Keyframe Poses。 MapPoints 通常只是跟随 correction 粗略调整。 Global BA 可以重新利用所有 pixel observations，
 
@@ -1875,7 +1855,6 @@ $$
 
 得到更高精度的一致地图。
 
-</details>
 
 ### Q8：如果一个 Pose Graph 的最终所有 residual 都不是 0，是不是说明优化失败？
 

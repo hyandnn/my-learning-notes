@@ -1374,9 +1374,7 @@ Sensor  →  Constraint Generation  →  State Optimization 这句话尤其重�
 
 ### Q1：如果机器人拥有完全精确的 Pose，还需要做 SLAM 吗？
 
-<details>
-
-<summary>参考答案</summary>
+**参考答案**
 
 严格来说不需要。
 
@@ -1396,13 +1394,10 @@ $$
 
 本身也是未知量。
 
-</details>
 
 ### Q2：为什么 Odometry 再准确，也不等于 SLAM？
 
-<details>
-
-<summary>参考答案</summary>
+**参考答案**
 
 因为 Odometry 主要依赖：
 
@@ -1422,13 +1417,10 @@ $$
 
 Loop Closure 等长时间跨度约束重新修正过去状态。
 
-</details>
 
 ### Q3：SLAM 为什么经常保存 Keyframe，而不是只保存当前 Pose？
 
-<details>
-
-<summary>参考答案</summary>
+**参考答案**
 
 因为未来的新观测可能反过来修正过去。
 
@@ -1456,13 +1448,10 @@ $$
 
 Keyframe 这种信息压缩。
 
-</details>
 
 ### Q4：为什么错误的 Loop Closure 特别危险？
 
-<details>
-
-<summary>参考答案</summary>
+**参考答案**
 
 因为它不是普通的局部误差。 一个错误 feature match 可能只影响附近几个状态。
 
@@ -1478,7 +1467,6 @@ $$
 
 Data Association Reliability
 
-</details>
 
 ### Q5：一句话区分 Front-end 与 Back-end？
 

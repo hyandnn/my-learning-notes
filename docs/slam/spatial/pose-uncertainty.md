@@ -1379,9 +1379,8 @@ $$
 
 为什么不能给 Rotation Matrix 的 9 个元素分别添加独立 Gaussian Noise？
 
-<details>
+**参考答案**
 
-<summary>参考答案</summary>
 因为 Rotation Matrix 的元素不是独立变量，必须满足：
 
 $$
@@ -1398,7 +1397,6 @@ $$
 
 上定义 Gaussian，再通过 Exp 映射到合法 Rotation。
 
-</details>
 
 ---
 
@@ -1406,9 +1404,8 @@ $$
 
 两个系统都给出同一个 $$6\times6$$ Pose Covariance，能否认为它们表达相同的不确定性？
 
-<details>
+**参考答案**
 
-<summary>参考答案</summary>
 不能。
 
 还必须确认：
@@ -1422,7 +1419,6 @@ $$
 
 相同数值矩阵在不同约定下可能表示完全不同的物理不确定性。
 
-</details>
 
 ---
 
@@ -1430,9 +1426,8 @@ $$
 
 为什么一个纯 Orientation Uncertainty 转换到远离旋转中心的 Sensor Frame 后，会产生 Position Uncertainty？
 
-<details>
+**参考答案**
 
-<summary>参考答案</summary>
 Sensor 与旋转中心之间存在杠杆臂 $$t$$。
 
 小角度误差会造成 Sensor 原点位置变化：
@@ -1451,7 +1446,6 @@ $$
 
 正是描述这种耦合。
 
-</details>
 
 ---
 
@@ -1479,9 +1473,8 @@ $$
 
 为什么 Error-State Kalman Filter 不直接把 Quaternion 的四个分量作为四维普通误差？
 
-<details>
+**参考答案**
 
-<summary>参考答案</summary>
 Quaternion 有单位长度约束：
 
 $$
@@ -1504,7 +1497,6 @@ $$
 
 并通过 Quaternion 乘法或 Exp 注入姿态。
 
-</details>
 
 ---
 
@@ -1512,9 +1504,8 @@ $$
 
 如果一个 Pose 的 Position Covariance 很小，是否说明所有由该 Pose 变换出的空间点位置都很准确？
 
-<details>
+**参考答案**
 
-<summary>参考答案</summary>
 不一定。
 
 即使 Position Covariance 很小，只要 Orientation Covariance 不小，远离旋转中心的点仍可能具有很大的位置误差：
@@ -1525,7 +1516,6 @@ $$
 
 点越远，Orientation Error 产生的位置偏差通常越大。
 
-</details>
 
 ---
 
@@ -1533,9 +1523,8 @@ $$
 
 为什么 Pose Covariance 的 Trace 通常不是一个很好的总体不确定性指标？
 
-<details>
+**参考答案**
 
-<summary>参考答案</summary>
 因为 Pose Covariance 混合了不同单位：
 
 - Translation：$$\text{m}^2$$
@@ -1551,7 +1540,6 @@ $$
 
 更合理的是根据具体任务，将 Pose Uncertainty 传播到目标量，或使用带统计意义的信息矩阵评价。
 
-</details>
 
 ## 相关章节与来源
 

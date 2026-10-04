@@ -1731,9 +1731,7 @@ $$
 
 ### Q1：为什么新 landmark 一初始化，就不能和 robot pose 看成独立变量？
 
-<details>
-
-<summary>参考答案</summary>
+**参考答案**
 
 因为 landmark 的位置就是通过：
 
@@ -1751,13 +1749,10 @@ $$
 
 所以 robot 的误差会直接进入 landmark。 因此二者天然相关。
 
-</details>
 
 ### Q2：为什么机器人只看到 landmark A，landmark B 也可能被更新？
 
-<details>
-
-<summary>参考答案</summary>
+**参考答案**
 
 因为：
 
@@ -1785,13 +1780,10 @@ $$
 
 A ↔  Robot ↔  B Measurement information 可以通过 covariance 传播。
 
-</details>
 
 ### Q3：如果完全忽略所有 cross-covariance，会怎样？
 
-<details>
-
-<summary>参考答案</summary>
+**参考答案**
 
 相当于假设：
 
@@ -1809,13 +1801,10 @@ $$
 
 overconfidence 也就是 covariance 过小，但真实误差并没那么小。 这是一种典型 estimator inconsistency。
 
-</details>
 
 ### Q4：为什么 EKF-SLAM 随 landmark 数量增加会越来越难？
 
-<details>
-
-<summary>参考答案</summary>
+**参考答案**
 
 因为 State 维度：
 
@@ -1831,13 +1820,10 @@ $$
 
 而且 covariance 通常逐渐变 dense。 所以计算和存储都难以扩展。
 
-</details>
 
 ### Q5：EKF-SLAM 和 Graph SLAM 最核心的表示差别是什么？
 
-<details>
-
-<summary>参考答案</summary>
+**参考答案**
 
 EKF-SLAM 直接维护：
 
@@ -1851,7 +1837,6 @@ $$
 
 然后通过 optimization 求解。
 
-</details>
 
 ### Q6：为什么 EKF-SLAM 即使现在不常作为大型视觉 SLAM 主流方案，还是值得学？
 

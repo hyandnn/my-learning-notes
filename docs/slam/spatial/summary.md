@@ -241,9 +241,7 @@ B. Sensor Noise 太大
 C. Geometry Degeneracy  
 D. $$SE(3)$$ 实现错误
 
-<details>
-
-<summary>参考答案</summary>
+**参考答案**
 
 选择：
 
@@ -267,7 +265,6 @@ $$
 
 > 修订说明：按理想直走廊两侧墙面的几何，将草稿示例改为沿走廊方向弱约束、横向较强约束。真实弱方向仍需查看法向分布与 Hessian，不能仅凭走廊名称判定。
 
-</details>
 
 ### 思考题 2
 
@@ -294,9 +291,7 @@ Wheel 0.5
 
 做平均？
 
-<details>
-
-<summary>参考答案</summary>
+**参考答案**
 
 因为两个 Pose Measurement：
 
@@ -315,7 +310,6 @@ Wheel 0.5
 
 不是对两个 $$4\times4$$ Matrix 求平均。
 
-</details>
 
 ### 思考题 3
 
@@ -331,9 +325,7 @@ $$
 
 按照我们 Part II + III 的思路，你认为合理的诊断顺序是什么？
 
-<details>
-
-<summary>参考答案</summary>
+**参考答案**
 
 比较合理的是：
 
@@ -355,7 +347,6 @@ $$
 
 这与“分层验证 + 控制变量”的诊断方法一致。
 
-</details>
 
 ### 思考题 4
 
@@ -363,9 +354,7 @@ Camera Observation 的 Reprojection Error 很小。
 
 能否证明 Camera Pose 很准确？
 
-<details>
-
-<summary>参考答案</summary>
+**参考答案**
 
 不能。
 
@@ -383,7 +372,6 @@ $$
 \boxed{ Small\ Residual \not\Rightarrow Correct\ State }
 $$
 
-</details>
 
 ### 思考题 5
 
@@ -397,9 +385,7 @@ Encoder 极其精确。
 
 它能否长期保持准确 Localization？
 
-<details>
-
-<summary>参考答案</summary>
+**参考答案**
 
 通常不能。
 
@@ -421,7 +407,6 @@ Wheel Slip、碰撞、轮径模型、地面状态都会造成 Motion Model Error
 
 所以 Odometry Error 会持续累积。
 
-</details>
 
 ### 思考题 6
 
@@ -435,9 +420,7 @@ $$
 
 这个信息比“ICP Score 比较差”多告诉了你什么？
 
-<details>
-
-<summary>参考答案</summary>
+**参考答案**
 
 ICP Score 只是告诉你：
 
@@ -465,7 +448,6 @@ $$
 
 这比一个单独的 Scalar Score 提供的信息丰富得多。
 
-</details>
 
 ## 衔接 Part IV：地图也未知
 

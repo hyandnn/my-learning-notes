@@ -2401,9 +2401,7 @@ Residual 怎么真正变成 State Correction 这就是本章最大的意义。
 
 ### Q1：为什么 SLAM 通常是 Nonlinear Least Squares，而不是 Linear Least Squares？
 
-<details>
-
-<summary>参考答案</summary>
+**参考答案**
 
 因为 Camera projection、rotation、3D geometry 等 measurement models 都是非线性的：
 
@@ -2423,7 +2421,6 @@ $$
 
 linearize →  solve →  update 进行迭代求解。
 
-</details>
 
 ### Q2：Jacobian 非常小意味着什么？
 
@@ -2447,9 +2444,7 @@ weak observability
 
 ### Q3：如果某个方向 Jacobian 完全为零呢？
 
-<details>
-
-<summary>参考答案</summary>
+**参考答案**
 
 存在：
 
@@ -2471,13 +2466,10 @@ $$
 
 因此 Hessian 有 null space。 这个方向是不可观的。 例如 SLAM global translation gauge。
 
-</details>
 
 ### Q4：为什么 Gauss-Newton 需要较好初始化？
 
-<details>
-
-<summary>参考答案</summary>
+**参考答案**
 
 因为它通过：
 
@@ -2495,13 +2487,10 @@ $$
 
 可能错误。
 
-</details>
 
 ### Q5：LM 相比 GN 最大的意义是什么？
 
-<details>
-
-<summary>参考答案</summary>
+**参考答案**
 
 Gauss-Newton：
 
@@ -2521,13 +2510,10 @@ $$
 
 更稳健
 
-</details>
 
 ### Q6：为什么 SLAM 的 Hessian 通常很 sparse？
 
-<details>
-
-<summary>参考答案</summary>
+**参考答案**
 
 因为一个 measurement 只连接少量 states。
 
@@ -2551,13 +2537,10 @@ $$
 
 不会依赖所有其他 variables。 所以 Jacobian 和 Hessian 都天然具有 sparse block structure。
 
-</details>
 
 ### Q7：为什么实际实现不会计算 $$H^{-1}$$？
 
-<details>
-
-<summary>参考答案</summary>
+**参考答案**
 
 虽然理论：
 
@@ -2577,13 +2560,10 @@ $$
 H\Delta x=-b
 $$
 
-</details>
 
 ### Q8：为什么一个 Outlier 对普通 Least Squares 特别危险？
 
-<details>
-
-<summary>参考答案</summary>
+**参考答案**
 
 因为：
 
@@ -2601,7 +2581,6 @@ $$
 
 倍。 所以一个错误 measurement 可以压倒大量正常 observations。 这就是 RANSAC 和 Robust Kernel 必要的原因。
 
-</details>
 
 ## 相关章节与来源
 

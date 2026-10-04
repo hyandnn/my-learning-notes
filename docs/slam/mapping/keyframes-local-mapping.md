@@ -1846,9 +1846,7 @@ Keyframe 的根本目的不是“少存几张图片”，而是：
 
 ### Q1：为什么相机静止时，不应该每隔固定时间插 Keyframe？
 
-<details>
-
-<summary>参考答案</summary>
+**参考答案**
 
 因为虽然 Frame 数量增加， 但 scene geometry 基本不变。 新增 information 很少。
 
@@ -1864,13 +1862,10 @@ $$
 
 而不是单纯时间。
 
-</details>
 
 ### Q2：为什么 Keyframe 之间需要一定 parallax？
 
-<details>
-
-<summary>参考答案</summary>
+**参考答案**
 
 因为新 MapPoint 通常依赖多视角 triangulation。
 
@@ -1882,7 +1877,6 @@ $$
 
 两条 viewing ray 几乎平行， depth uncertainty 很大。 所以需要一定视差。
 
-</details>
 
 ### Q3：为什么又不能让 Keyframe 间隔过大？
 
