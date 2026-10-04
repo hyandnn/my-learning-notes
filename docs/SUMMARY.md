@@ -3,9 +3,7 @@
 * [机器人学习笔记](README.md)
 * [阅读指南](getting-started.md)
 
-## SLAM
-
-* [学习路线](slam/README.md)
+* [SLAM · 学习路线](slam/README.md)
   * [Part I · 机器人基础](slam/foundations/README.md)
     * [机器人系统的信息流](slam/foundations/robot-systems.md)
     * [里程计与定位漂移](slam/foundations/odometry-and-drift.md)
@@ -17,8 +15,6 @@
     * [预测与校正的循环](slam/foundations/prediction-and-correction.md)
     * [Kalman Gain 的直觉](slam/foundations/kalman-gain-intuition.md)
     * [Part I 回顾与自测](slam/foundations/summary.md)
-
-## 查阅与进度
 
 * [查阅与公式](reference/README.md)
   * [术语表](reference/glossary.md)
