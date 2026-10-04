@@ -1,5 +1,5 @@
 #!/usr/bin/env python3
-"""Check the public docs' navigation, local links and heading anchors."""
+"""Check public docs, including links to the repository's SLAM source notes."""
 from pathlib import Path
 from urllib.parse import urlsplit, unquote
 from html.parser import HTMLParser
@@ -7,6 +7,7 @@ import re, sys
 
 ROOT = Path(__file__).resolve().parents[1]
 DOCS = ROOT / 'docs'
+SOURCES = ROOT / 'SLAM'
 
 class Links(HTMLParser):
     def __init__(self):
@@ -14,7 +15,7 @@ class Links(HTMLParser):
     def handle_starttag(self, tag, attrs):
         for key, value in attrs:
             if key in ('href','src') and value:
-                self.targets.append(value)
+                self.targets.append((value, key == 'src'))
 
 def plain(text):
     return re.sub(r'^(`{3,}|~{3,}).*?^\1\s*$', '', text, flags=re.M|re.S)
@@ -39,21 +40,26 @@ def check():
         if not re.search(r'^#\s+',text,re.M):
             errors.append(f'{page.relative_to(ROOT)}: missing page title')
         html = Links(); html.feed(text)
-        targets = re.findall(r'!?\[[^\]\n]*\]\(([^)\s]+)(?:\s+"[^"]*")?\)',text)
+        targets = [(link, bool(image)) for image, link in
+                   re.findall(r'(!?)\[[^\]\n]*\]\(([^)\s]+)(?:\s+"[^"]*")?\)',text)]
         targets += html.targets
         cover = re.search(r'^cover:\s*(\S+)',text,re.M)
-        if cover: targets.append(cover.group(1))
-        for link in targets:
+        if cover: targets.append((cover.group(1), True))
+        for link, is_image in targets:
             if link.startswith(('http:','https:','mailto:','tel:','data:','/files/','/pages/')):
                 continue
             split=urlsplit(link); local=unquote(split.path)
             target=(page.parent/local).resolve() if local else page.resolve()
             checked+=1
-            if not target.is_relative_to(DOCS.resolve()):
+            source_link = (not is_image and target.is_relative_to(ROOT.resolve())
+                           and target.is_relative_to(SOURCES.resolve()))
+            anchor_page = target / 'README.md' if target.is_dir() else target
+            if not target.is_relative_to(DOCS.resolve()) and not source_link:
                 errors.append(f'{page.relative_to(ROOT)}: link leaves docs: {link}')
             elif not target.exists():
                 errors.append(f'{page.relative_to(ROOT)}: missing target: {link}')
-            elif split.fragment and target.suffix=='.md' and unquote(split.fragment) not in anchors(target):
+            elif (split.fragment and anchor_page.is_file() and anchor_page.suffix=='.md'
+                  and unquote(split.fragment) not in anchors(anchor_page)):
                 errors.append(f'{page.relative_to(ROOT)}: missing anchor: {link}')
     summary=(DOCS/'SUMMARY.md').read_text()
     entries=re.findall(r'\[[^\]]+\]\(([^)]+)\)',summary)

@@ -5,6 +5,7 @@ on:
     paths:
       - 'docs/**'
       - 'scripts/check_docs.py'
+      - 'scripts/test_check_docs.py'
       - '.gitbook.yaml'
       - 'gitbook-docs.yaml'
       - '.github/workflows/docs-check.yml'
@@ -13,6 +14,7 @@ on:
     paths:
       - 'docs/**'
       - 'scripts/check_docs.py'
+      - 'scripts/test_check_docs.py'
       - '.gitbook.yaml'
       - 'gitbook-docs.yaml'
       - '.github/workflows/docs-check.yml'
@@ -32,4 +34,6 @@ jobs:
         with:
           persist-credentials: false
       - name: Validate documentation
-        run: python3 scripts/check_docs.py
+        run: |
+          python3 -m unittest discover -s scripts -p 'test_*.py'
+          python3 scripts/check_docs.py

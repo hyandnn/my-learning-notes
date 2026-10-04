@@ -23,4 +23,8 @@
 
 检查工具核对目录引用、相对路径、锚点、重复目录条目与残留 Obsidian 双链。它不核验公式的数学正确性，也不代替网站的视觉检查。
 
+允许链接到 `SLAM/` 中已有的公开源材料，图片需保存在 `docs/`。GitBook 回写可能将源材料链接改成仓库相对路径，保持该格式即可；不要把草稿或实验目录直接加入正文链接。
+
+修改检查工具时，运行 `python3 -m unittest discover -s scripts -p 'test_*.py'`。如果通过 GitBook 编辑，先合并变更请求并确认回写到 `main`，再拉取最新提交继续修改。
+
 GitBook 外观设置在站点中维护；正文以仓库为主。持续同步首次连接步骤见 [GITBOOK_SETUP.md](GITBOOK_SETUP.md)。
