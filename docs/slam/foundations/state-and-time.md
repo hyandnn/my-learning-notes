@@ -36,11 +36,11 @@ Chapter 5 讨论 Belief 如何被 Observation 更新。本章把“时间”正�
 
 ```mermaid
 flowchart TD
-    B0["上一时刻 Belief"] --> P["当前预测 Belief"]
+    B0["上一时刻信念"] --> P["当前预测信念"]
     M["状态转移模型与输入"] --> P
     P --> C["观测模型与校正"]
     Z["当前观测"] --> C
-    C --> B["当前 Belief"]
+    C --> B["当前信念"]
 ```
 
 这会为 Bayes Filter、Kalman Filter、Particle Filter 和 SLAM 前端建立共同语言。
@@ -175,7 +175,7 @@ State 的要求是：对当前模型的递推预测足够。简洁的状态便�
 
 ```mermaid
 flowchart TD
-    B["当前 Belief"] --> P["下一时刻预测"]
+    B["当前信念"] --> P["下一时刻预测"]
     P --> C["校正"]
     O["新观测"] --> C
     C --> B
