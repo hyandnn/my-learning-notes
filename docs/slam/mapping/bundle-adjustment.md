@@ -2080,9 +2080,7 @@ $$
 
 ### Q1：为什么 BA 不应该只优化 Camera Pose？
 
-<details>
-
-<summary>参考答案</summary>
+**参考答案**
 
 因为 Landmark 本身通常也是由 noisy triangulation 得来的。
 
@@ -2100,13 +2098,10 @@ $$
 
 Structure 共同找到更一致的解。
 
-</details>
 
 ### Q2：为什么 Landmark 多很多，BA 却还能做？
 
-<details>
-
-<summary>参考答案</summary>
+**参考答案**
 
 因为不同 landmarks 没有直接连接，
 
@@ -2122,13 +2117,10 @@ $$
 
 Schur Complement 先消掉它们， 把问题缩成 Pose-only system。
 
-</details>
 
 ### Q3：Schur Complement 把 Landmark 删除后，它的信息是不是没了？
 
-<details>
-
-<summary>参考答案</summary>
+**参考答案**
 
 不是。
 
@@ -2144,13 +2136,10 @@ $$
 
 information compression 不是 information deletion。
 
-</details>
 
 ### Q4：为什么一个 Landmark 被越多 Camera 看到，消元后可能产生越多 fill-in？
 
-<details>
-
-<summary>参考答案</summary>
+**参考答案**
 
 因为这个 Landmark 把所有观察它的 Cameras 联系在一起。
 
@@ -2162,7 +2151,6 @@ $$
 
 个 Camera 看到， 消掉它后这些 Camera 之间会形成更密集的关系。 所以连接度越高，潜在 fill-in 越多。
 
-</details>
 
 ### Q5：为什么 BA 不能解决严重错误的 Data Association？
 
@@ -2182,9 +2170,7 @@ Pose, Point 如果离散对应关系本身错了， 优化器可能会努力满�
 
 ### Q6：为什么远距离 MapPoint 对 Translation 约束通常比较弱？
 
-<details>
-
-<summary>参考答案</summary>
+**参考答案**
 
 投影 Jacobian 中有：
 
@@ -2196,13 +2182,10 @@ $$
 
 Z →  large 时， translation / depth 变化对 pixel 的影响变小。 所以 measurement information 变弱。
 
-</details>
 
 ### Q7：为什么 Local BA 比 Global BA 更适合实时 SLAM？
 
-<details>
-
-<summary>参考答案</summary>
+**参考答案**
 
 因为新 measurement 主要影响当前附近状态。
 
@@ -2214,7 +2197,6 @@ $$
 
 可以获得大部分精度收益， 而避免每一帧都优化整张地图。
 
-</details>
 
 ### Q8：BA 和 EKF-SLAM 最重要的区别是什么？
 

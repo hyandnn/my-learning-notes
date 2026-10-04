@@ -2074,9 +2074,7 @@ $$
 
 ### Q2：Factor Graph 自己负责优化吗？
 
-<details>
-
-<summary>参考答案</summary>
+**参考答案**
 
 不是。
 
@@ -2094,13 +2092,10 @@ $$
 
 等算法。
 
-</details>
 
 ### Q3：为什么加入 GPS 只需要增加 GPS Factor，而不用重新设计整个 estimator？
 
-<details>
-
-<summary>参考答案</summary>
+**参考答案**
 
 因为所有 sensor 都统一表达为：
 
@@ -2112,7 +2107,6 @@ GPS 只是提供一种新的：
 
 Absolute Position Constraint 所以它自然加入现有 graph。
 
-</details>
 
 ### Q4：为什么一个 Factor 通常只连接少量 Variables？
 
@@ -2138,9 +2132,7 @@ Sparse Hessian
 
 ### Q5：为什么消掉一个 Variable 会让它的邻居产生新联系？
 
-<details>
-
-<summary>参考答案</summary>
+**参考答案**
 
 因为原来它是邻居之间的信息桥梁。
 
@@ -2170,7 +2162,6 @@ $$
 
 fill-in
 
-</details>
 
 ### Q6：Marginalization 为什么不是简单删除旧 State？
 
@@ -2192,9 +2183,7 @@ Prior Factor
 
 ### Q7：为什么 Loop Closure 可以在 Factor Graph 里非常自然地表示？
 
-<details>
-
-<summary>参考答案</summary>
+**参考答案**
 
 因为它本质上就是：
 
@@ -2208,13 +2197,10 @@ $$
 
 图里就多了一条长距离约束。
 
-</details>
 
 ### Q8：如果我要分析一个完全陌生的 VIO/LIO/SLAM 系统，最值得先问哪四个问题？
 
-<details>
-
-<summary>参考答案</summary>
+**参考答案**
 
 先问：
 
@@ -2236,7 +2222,6 @@ $$
 
 这四个问题回答出来，整个 estimator 的骨架基本就已经清楚了。
 
-</details>
 
 ## 相关章节与来源
 

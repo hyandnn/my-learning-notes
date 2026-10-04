@@ -2224,9 +2224,7 @@ $$
 
 ### Q1：为什么 IMU 频率很高，却不能单独长期定位？
 
-<details>
-
-<summary>参考答案</summary>
+**参考答案**
 
 因为：
 
@@ -2248,13 +2246,10 @@ $$
 
 Short-term propagation 不适合单独长期绝对定位。
 
-</details>
 
 ### Q2：为什么 VIO 必须把 Velocity 放进 State？
 
-<details>
-
-<summary>参考答案</summary>
+**参考答案**
 
 因为 IMU dynamics：
 
@@ -2276,7 +2271,6 @@ $$
 
 无法正确表达连续运动模型。
 
-</details>
 
 ### Q3：为什么 Bias 不能只在出厂时 calibration 一次然后固定？
 
@@ -2300,9 +2294,7 @@ Random Walk 作为动态 state 在线估计。
 
 ### Q4：为什么需要 IMU Preintegration？
 
-<details>
-
-<summary>参考答案</summary>
+**参考答案**
 
 因为 Camera 两帧之间可能有几十甚至上百个 IMU measurements。 如果每个 IMU sample 都创建一个 state / factor，问题太大。
 
@@ -2314,13 +2306,10 @@ $$
 
 形成一个 Keyframe-to-Keyframe IMU Factor。
 
-</details>
 
 ### Q5：为什么 Monocular + IMU 可以恢复 Metric Scale？
 
-<details>
-
-<summary>参考答案</summary>
+**参考答案**
 
 纯视觉投影对整体 scale 不敏感。
 
@@ -2340,7 +2329,6 @@ $$
 
 可以变得 observable。
 
-</details>
 
 ### Q6：为什么有 IMU 还需要充分运动激励？
 
@@ -2386,9 +2374,7 @@ Prior Factor
 
 ### Q9：VIO 和 LIO 最大的共同点是什么？
 
-<details>
-
-<summary>参考答案</summary>
+**参考答案**
 
 两者都可以看成：
 
@@ -2410,13 +2396,10 @@ $$
 
 但 State、Bias、Gravity、Propagation、Observability 等思想高度统一。
 
-</details>
 
 ### Q10：Tightly Coupled 为什么通常比 Loosely Coupled 信息利用更充分？
 
-<details>
-
-<summary>参考答案</summary>
+**参考答案**
 
 因为 Tight Coupling 直接使用：
 
@@ -2436,7 +2419,6 @@ $$
 
 再融合。 因此会丢失一部分 measurement-level structure。
 
-</details>
 
 ## 相关章节与来源
 

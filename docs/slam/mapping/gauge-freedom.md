@@ -1628,9 +1628,7 @@ Degenerate Motion 不是一回事。 前者是系统结构天然不可观。 后
 
 ### Q1：为什么两套完全不同世界坐标的 SLAM map，可以同样正确？
 
-<details>
-
-<summary>参考答案</summary>
+**参考答案**
 
 因为 SLAM measurement 主要描述：
 
@@ -1644,13 +1642,10 @@ $$
 
 就能互相转换， 它们的所有内部相对关系完全一致。 所以它们代表的是同一个物理解。
 
-</details>
 
 ### Q2：固定第一帧以后，第一帧真的就成为“世界真实原点”了吗？
 
-<details>
-
-<summary>参考答案</summary>
+**参考答案**
 
 不是。
 
@@ -1662,13 +1657,10 @@ $$
 
 这是一种坐标 convention。
 
-</details>
 
 ### Q3：Loop Closure 为什么能消除 drift，却不能消除 global gauge？
 
-<details>
-
-<summary>参考答案</summary>
+**参考答案**
 
 因为 loop closure 增加的是：
 
@@ -1682,13 +1674,10 @@ $$
 
 但整个系统整体做一个 global transform 后， 所有 relative constraints 仍然不变。
 
-</details>
 
 ### Q4：单目为什么没有 metric scale？
 
-<details>
-
-<summary>参考答案</summary>
+**参考答案**
 
 因为投影：
 
@@ -1724,13 +1713,10 @@ $$
 
 的同比例世界。
 
-</details>
 
 ### Q5：为什么双目可以恢复 scale？
 
-<details>
-
-<summary>参考答案</summary>
+**参考答案**
 
 因为 baseline：
 
@@ -1746,7 +1732,6 @@ $$
 
 因此 disparity 可以恢复 metric depth。
 
-</details>
 
 ### Q6：纯旋转为什么对单目 depth 很危险？
 

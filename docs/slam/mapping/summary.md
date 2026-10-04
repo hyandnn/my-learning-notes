@@ -300,9 +300,7 @@ $$
 
 ### Q1：为什么说 SLAM 最核心的资源不是“算力”，而是 Information？
 
-<details>
-
-<summary>参考答案</summary>
+**参考答案**
 
 因为再强的 optimizer，如果当前 measurement 对某个方向完全没有信息：
 
@@ -312,13 +310,10 @@ $$
 
 也无法估出它。 算力只能更好地利用已有 information， 不能创造不存在的 observability。
 
-</details>
 
 ### Q2：为什么 Keyframe、Marginalization 和 Schur Complement 看似完全不同，却可以放在同一个主题下？
 
-<details>
-
-<summary>参考答案</summary>
+**参考答案**
 
 因为它们都在解决：
 
@@ -342,13 +337,10 @@ Marginalization：
 
 减少表示规模，同时尽量保留有价值的信息
 
-</details>
 
 ### Q3：为什么一个拥有非常强 Neural Front-end 的 SLAM，仍然可能因为几何问题失败？
 
-<details>
-
-<summary>参考答案</summary>
+**参考答案**
 
 因为神经网络可以改善：
 
@@ -372,13 +364,10 @@ $$
 
 问题。 网络并不会自动让这些物理约束消失。
 
-</details>
 
 ### Q4：为什么机器人定位系统通常需要“快但不够准”和“慢但更准”的两个层次？
 
-<details>
-
-<summary>参考答案</summary>
+**参考答案**
 
 因为实时控制需要：
 
@@ -404,13 +393,10 @@ $$
 
 不断修正结果。 两者是不同需求。
 
-</details>
 
 ### Q5：如果当前 Camera 突然完全失效 2 秒，VIO 为什么还能暂时工作，但不能长期依赖 IMU？
 
-<details>
-
-<summary>参考答案</summary>
+**参考答案**
 
 因为 IMU 可以：
 
@@ -428,13 +414,10 @@ $$
 
 Orientation, Velocity, Position 快速 drift。 所以它是短期桥梁，不是永久替代 Camera。
 
-</details>
 
 ### Q6：如果系统 Loop Closure 很强，是不是 Odometry 差一点也无所谓？
 
-<details>
-
-<summary>参考答案</summary>
+**参考答案**
 
 不是。 Loop Closure 通常稀疏而偶发。 两次 Loop 之间仍然要靠 Odometry / Tracking。
 
@@ -452,7 +435,6 @@ $$
 
 缺一不可。
 
-</details>
 
 ### Q7：为什么真正成熟的 State Estimator 必须有 Failure Detection？
 
@@ -478,9 +460,7 @@ Tracking Lost 却继续输出高置信 Pose， 下游会把错误状态当真。
 
 ### Q8：如果以后你看到一个新的机器人定位算法，第一步应该看它网络 backbone 还是 State Definition？
 
-<details>
-
-<summary>参考答案</summary>
+**参考答案**
 
 优先看：
 
@@ -504,7 +484,6 @@ $$
 
 > 它到底在解决什么状态估计问题。
 
-</details>
 
 ## 下一阶段
 
