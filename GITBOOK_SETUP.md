@@ -6,7 +6,9 @@
 - GitBook 管理：https://app.gitbook.com/o/sYxx5x49IVH1o6Swx7bu/sites/site_2vD56
 - 已完成：20 个页面的首次内容导入、外观配置和公开发布。
 - 已补充：PR / main 的自动文档检查、内容纠错模板与维护说明。
-- 待完成：GitHub App 与本站点的首次持续 Git Sync 连接、双向同步验证，以及首页布局开关、桌面和手机的浏览器视觉验收。
+- 已完成：首页隐藏目录、页内大纲和首页翻页，保留正文页的目录与章节翻页。
+- 已检查：GitBook 编辑器阅读视图中的首页封面与卡片、卡片跳转、贝叶斯公式、表格、折叠答案和 Mermaid 流程图（包括全屏查看）。
+- 待完成：GitHub App 安装与首次持续 Git Sync 连接、双向同步验证，以及公开页的桌面和手机视觉验收。
 
 - 内容仓库：`hyandnn/my-learning-notes`。
 - 发布分支：`main`。
@@ -31,6 +33,8 @@ GitBook 插件可以编辑、导入和发布内容；持续 Git Sync 的连接�
 
 如果采用单空间从仓库根连接，使用根目录 `.gitbook.yaml` 的 `root: ./docs/`。
 
+GitBook 的 GitHub App 与 ChatGPT 中的 GitBook 插件是两个独立授权。当前已在安装页面选择 **Only select repositories → hyandnn/my-learning-notes**，尚未点击 Install。应用请求元数据读取，以及代码、提交状态和 Pull Request 的读写权限，用于双向同步。完成安装后仍须选择 `main`、映射 `/docs` 并执行首次同步；页面上的 Pending 不代表已经连接成功。
+
 站点级 Git Sync 会生成 `gitbook-docs.yaml` 映射文件。保留界面为现有空间生成的稳定 `key`，不为已经发布的空间随意换 key。具体以 [GitHub Sync 官方步骤](https://gitbook.com/docs/docs-as-code/git-sync/enabling-github-sync)和[内容配置文档](https://gitbook.com/docs/docs-as-code/git-sync/content-configuration)为准。
 
 ## 日常维护
@@ -50,8 +54,9 @@ GitBook 支持双向同步；若在 GitBook 修改内容，先拉取回写到仓
 - [x] 仓库独立维护，公开正文均位于 `docs/`。
 - [x] 20 页导航、相对路径和锚点通过检查。
 - [x] 已通过 GitBook API 确认公开发布、中文、主题切换、搜索和章节翻页设置。
-- [ ] 在 GitBook 应用中落实首页布局开关（隐藏目录、页内大纲和首页翻页）；仓库首页 frontmatter 已配置，当前插件的页面更新接口尚未应用这些开关。
-- [ ] 桌面和手机浏览器检查：卡片、目录、公式、Mermaid 和折叠问答。
+- [x] 在 GitBook 应用中落实首页布局开关（隐藏目录、页内大纲和首页翻页），并合并变更请求 #4；仓库首页 frontmatter 与正式内容的开关一致。
+- [x] GitBook 编辑器阅读视图中检查：首页封面与卡片、卡片跳转、贝叶斯公式、表格、章节翻页、折叠答案和 Mermaid 流程图全屏查看。
+- [ ] 公开页的桌面和手机检查，以及公开搜索和 Mermaid 验收。当前云浏览器打开公开域名及独立预览地址返回 `ERR_BLOCKED_BY_CLIENT`；应用内的站点预览返回 404，不能据此认定公开站点可正常访问。
 - [ ] GitHub → GitBook 自动同步一次。
 - [ ] GitBook → GitHub 回写一次（如使用网页编辑）。
 
