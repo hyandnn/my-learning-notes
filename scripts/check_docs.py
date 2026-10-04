@@ -1,5 +1,5 @@
 #!/usr/bin/env python3
-"""Check public docs, including links to the repository's SLAM source notes."""
+"""Check public docs, with links confined to the published directory."""
 from pathlib import Path
 from urllib.parse import urlsplit, unquote
 from html.parser import HTMLParser
@@ -7,7 +7,6 @@ import re, sys
 
 ROOT = Path(__file__).resolve().parents[1]
 DOCS = ROOT / 'docs'
-SOURCES = ROOT / 'SLAM'
 
 class Links(HTMLParser):
     def __init__(self):
@@ -51,10 +50,8 @@ def check():
             split=urlsplit(link); local=unquote(split.path)
             target=(page.parent/local).resolve() if local else page.resolve()
             checked+=1
-            source_link = (not is_image and target.is_relative_to(ROOT.resolve())
-                           and target.is_relative_to(SOURCES.resolve()))
             anchor_page = target / 'README.md' if target.is_dir() else target
-            if not target.is_relative_to(DOCS.resolve()) and not source_link:
+            if not target.is_relative_to(DOCS.resolve()):
                 errors.append(f'{page.relative_to(ROOT)}: link leaves docs: {link}')
             elif not target.exists():
                 errors.append(f'{page.relative_to(ROOT)}: missing target: {link}')
